@@ -13,14 +13,18 @@
   },
   "dependencies": [
     {
+      "url": "https://github.com/open-abap/open-abap-core",
       "files": "/src/**/*.*",
-      "folder": "/deps_core",
-      "url": "https://github.com/open-abap/open-abap-core"
+      "folder": "/deps_core"
+    },
+    {
+      "url": "https://github.com/open-abap/open-abap-bal",
+      "files": "/src/**/*.*",
+      "folder": "/deps_bal"
     },
     {
       "files": "/src/**/*.*",
-      "folder": "/deps_bal",
-      "url": "https://github.com/open-abap/open-abap-bal"
+      "folder": "/abap-bw"
     }
   ],
   "rules": {
