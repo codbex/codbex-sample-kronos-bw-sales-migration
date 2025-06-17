@@ -16,7 +16,8 @@
     "@abaplint/transpiler-cli": "^2.10.59",
     "buffer": "^6.0.3",
     "dotenv": "^16.5.0",
-    "esbuild": "^0.25.5"
+    "esbuild": "^0.25.5",
+    "oras-pull": "^0.1.7"
   },
   "author": "",
   "license": "EPL-2.0"
