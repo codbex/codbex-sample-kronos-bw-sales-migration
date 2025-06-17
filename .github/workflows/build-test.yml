@@ -1,0 +1,24 @@
+name: Build & Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  validate-abap-transpilation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+#        TODO: to be enabled once abap transformation is implemented
+#      - run: npm ci
+#        working-directory: ./kronos-poc-project
+#      - run: npm test
+#        working-directory: ./kronos-poc-project

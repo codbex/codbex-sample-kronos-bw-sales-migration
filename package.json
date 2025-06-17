@@ -1,0 +1,23 @@
+{
+  "name": "codbex-sample-kronos-bw-sales-migration",
+  "version": "1.0.0",
+  "description": "Sample BW migration - Kronos",
+  "scripts": {
+    "transpile": "rm -rf dist && mkdir dist && abap_transpile abap_transpile.json",
+    "lint": "abaplint --config abaplint.json",
+    "unit": "npm run transpile && echo RUNNING && node dist/index.mjs && echo OK",
+    "test": "npm run lint && npm run unit && node run.mjs"
+  },
+  "dependencies": {
+    "@abaplint/cli": "^2.113.130",
+    "@abaplint/database-snowflake": "^2.10.46",
+    "@abaplint/database-sqlite": "^2.10.24",
+    "@abaplint/runtime": "^2.10.59",
+    "@abaplint/transpiler-cli": "^2.10.59",
+    "buffer": "^6.0.3",
+    "dotenv": "^16.5.0",
+    "esbuild": "^0.25.5"
+  },
+  "author": "",
+  "license": "EPL-2.0"
+}
