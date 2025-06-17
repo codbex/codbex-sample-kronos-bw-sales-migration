@@ -1347,7 +1347,7 @@ FORM get_runtime_ref
   CHANGING c_r_exe  TYPE REF TO object.
 
 *-- singelton instance
-  STATICS s_r_exe TYPE REF TO lcl_transform.
+  DATA s_r_exe TYPE REF TO lcl_transform.
 
   IF s_r_exe IS NOT BOUND.
     CREATE OBJECT s_r_exe.
