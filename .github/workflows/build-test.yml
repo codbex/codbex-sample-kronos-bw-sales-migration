@@ -1,0 +1,24 @@
+name: Build & Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  validate-abap-transpilation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm run pull
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: npm test
