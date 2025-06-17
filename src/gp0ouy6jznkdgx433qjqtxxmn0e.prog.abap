@@ -1,0 +1,1317 @@
+***********************************************************************
+*      Master Template Transformation
+***********************************************************************
+*      This is a generated program. Do not change it manually!
+***********************************************************************
+* Program class      RSTRAN_MASTER_TMPL
+* Object reference   0OUY6JZNKDGX433QJQTXXMN0E
+***********************************************************************
+* Template           RSTRAN_MASTER_TMPL
+*  - last changed by SAP
+*  - last changed at 26.05.2022 15:36:20
+* Generation
+*  - User name       ASQ28945
+*  - Time stamp      05.06.2025 17:12:25 UTC (05.06.2025 19:12:25 CET)
+*  - Release         750
+***********************************************************************
+*&---------------------------------------------------------------------*
+*&  Include           RSTRAN_MASTER_TMPL
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&  Template  RSTRAN_MASTER_TMPL  for transformation runtime           *
+*&---------------------------------------------------------------------*
+
+
+
+************************************************************************
+*
+*   Generated Runtime for Transformations
+*
+*   Template......: RSTRAN_MASTER_TMPL
+*   TranID........: 0FLXDSKYMZALJXUYFY6L5K61AVNABJMC   Version: 0
+*   Source........: RSDS DS_RS_TD                      XTK_FF
+*   Target........: ODSO TD_RS
+*
+*   Author........: ASQ28945
+*   Date..........: 05.06.2025 19:12:25
+*
+*   Do not change this source !
+*
+************************************************************************
+program RSTRAN_MASTER_TMPL.
+
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform DEFINITION
+*---------------------------------------------------------------------*
+*
+*---------------------------------------------------------------------*
+class lcl_transform definition.
+
+  public  section.
+
+    type-pools: rstr.
+
+    TYPES:
+      BEGIN OF _ty_s_SC_1,
+*      Field: PRODUCTFK ProductFK.
+        PRODUCTFK           TYPE N LENGTH 4,
+*      Field: RESELLERKEY ResellerKey.
+        RESELLERKEY           TYPE N LENGTH 4,
+*      Field: EMPKEY EmpKey.
+        EMPKEY           TYPE N LENGTH 4,
+*      Field: PROMOKEY PromoKey.
+        PROMOKEY           TYPE N LENGTH 3,
+*      Field: CURRENCYKEY CurrencyKey.
+        CURRENCYKEY           TYPE N LENGTH 3,
+*      Field: SALESTERRITORYKE SalesTerritoryKey.
+        SALESTERRITORYKE           TYPE N LENGTH 3,
+*      Field: SALESORDERNUM SalesOrderNum.
+        SALESORDERNUM           TYPE C LENGTH 7,
+*      Field: SALESORDERLINENU SalesOrderLineNum.
+        SALESORDERLINENU           TYPE N LENGTH 2,
+*      Field: REVISIONNUMBER RevisionNumber.
+        REVISIONNUMBER           TYPE N LENGTH 1,
+*      Field: ORDERQUANTITY OrderQuantity.
+        ORDERQUANTITY           TYPE P LENGTH 2 DECIMALS 0,
+*      Field: UNITPRICE UnitPrice.
+        UNITPRICE           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: EXTENDEDAMOUNT ExtendedAmount.
+        EXTENDEDAMOUNT           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: DISCOUNTPERCENTA DiscountPercentage.
+        DISCOUNTPERCENTA           TYPE F,
+*      Field: DISCOUNTAMOUNT DiscountAmount.
+        DISCOUNTAMOUNT           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: PRODUCTSTANDARTC ProductStandartCost.
+        PRODUCTSTANDARTC           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: TOTALPRODUCTCOST TotalProductCost.
+        TOTALPRODUCTCOST           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: SALESAMOUNT SalesAmount.
+        SALESAMOUNT           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: TAXAMOUNT TaxAmount.
+        TAXAMOUNT           TYPE P LENGTH 8 DECIMALS 0,
+*      Field: FREIGHT Freight.
+        FREIGHT           TYPE C LENGTH 8,
+*      Field: CARRIERTRACKINGN CarrierTrackingNumbe.
+        CARRIERTRACKINGN           TYPE C LENGTH 12,
+*      Field: CUSTOMERPURCHASE CustomerPurchaseOrde.
+        CUSTOMERPURCHASE           TYPE C LENGTH 20,
+*      Field: ORDER Order.
+        ORDER           TYPE D,
+*      Field: DUE Due.
+        DUE           TYPE D,
+*      Field: SHIP Ship.
+        SHIP           TYPE D,
+*      Field: CURRENCY Currency.
+        CURRENCY           TYPE C LENGTH 5,
+*      Field: RECORD Data record number.
+        RECORD           TYPE RSARECORD,
+      END   OF _ty_s_SC_1.
+    TYPES:
+      _ty_t_SC_1        TYPE STANDARD TABLE OF _ty_s_SC_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    TYPES:
+      BEGIN OF _ty_s_TG_1,
+*      Field: SID Master data ID.
+        SID           TYPE RSSID,
+*      Field: DATAPAKID Data packet number.
+        DATAPAKID           TYPE RSDATAPID,
+*      Field: RECORD Data record number.
+        RECORD           TYPE RSARECORD,
+*      InfoObject: MD_PROD Product MD.
+        /BIC/MD_PROD           TYPE /BIC/OIMD_PROD,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS           TYPE /BIC/OIMD_RS,
+*      InfoObject: MD_EMP Employee.
+        /BIC/MD_EMP           TYPE /BIC/OIMD_EMP,
+*      InfoObject: MD_PROM Promotion MD.
+        /BIC/MD_PROM           TYPE /BIC/OIMD_PROM,
+*      InfoObject: MD_S_TY Sales Territory MD.
+        /BIC/MD_S_TY           TYPE /BIC/OIMD_S_TY,
+*      InfoObject: MD_CPON Customer Purchase Order Number.
+        /BIC/MD_CPON           TYPE /BIC/OIMD_CPON,
+*      InfoObject: 0RECORDMODE BW Delta Process: Record Mode.
+        RECORDMODE           TYPE RODMUPDMOD,
+*      InfoObject: MD_CURR Currency MD.
+        /BIC/MD_CURR           TYPE /BIC/OIMD_CURR,
+*      InfoObject: MD_SON Sales Order Number.
+        /BIC/MD_SON           TYPE /BIC/OIMD_SON,
+*      InfoObject: MD_SOLN Sales Order Line Number.
+        /BIC/MD_SOLN           TYPE /BIC/OIMD_SOLN,
+*      InfoObject: MD_FRG Freight Number.
+        /BIC/MD_FRG           TYPE /BIC/OIMD_FRG,
+*      InfoObject: MD_REVNUM Revision Number.
+        /BIC/MD_REVNUM           TYPE /BIC/OIMD_REVNUM,
+*      InfoObject: MD_CTN Carrier Tracking Number.
+        /BIC/MD_CTN           TYPE /BIC/OIMD_CTN,
+*      InfoObject: MD_ORD Order Date.
+        /BIC/MD_ORD           TYPE /BIC/OIMD_ORD,
+*      InfoObject: MD_DD Due Date.
+        /BIC/MD_DD           TYPE /BIC/OIMD_DD,
+*      InfoObject: MD_SHD Ship Date.
+        /BIC/MD_SHD           TYPE /BIC/OIMD_SHD,
+*      InfoObject: MD_OQ Order Quantity.
+        /BIC/MD_OQ           TYPE /BIC/OIMD_OQ,
+*      InfoObject: MD_UNPR Unit Price.
+        /BIC/MD_UNPR           TYPE /BIC/OIMD_UNPR,
+*      InfoObject: MD_CURRN Currency Unit.
+        /BIC/MD_CURRN           TYPE /BIC/OIMD_CURRN,
+*      InfoObject: MD_EXAM Gross Sales Revenue (GSR).
+        /BIC/MD_EXAM           TYPE /BIC/OIMD_EXAM,
+*      InfoObject: MD_DISPER Discount Percentage.
+        /BIC/MD_DISPER           TYPE /BIC/OIMD_DISPER,
+*      InfoObject: MD_DA Discount Amount.
+        /BIC/MD_DA           TYPE /BIC/OIMD_DA,
+*      InfoObject: MD_PRST Product Standard Cost.
+        /BIC/MD_PRST           TYPE /BIC/OIMD_PRST,
+*      InfoObject: MD_TPC Cost of Goods Sold (COGS).
+        /BIC/MD_TPC           TYPE /BIC/OIMD_TPC,
+*      InfoObject: MD_SA Net Sales Revenue (NSR).
+        /BIC/MD_SA           TYPE /BIC/OIMD_SA,
+*      InfoObject: MD_TA Tax Amount.
+        /BIC/MD_TA           TYPE /BIC/OIMD_TA,
+      END   OF _ty_s_TG_1.
+    TYPES:
+      _ty_th_TG_1        TYPE HASHED TABLE OF _ty_s_TG_1
+                        WITH UNIQUE KEY
+                          /BIC/MD_PROD
+                          /BIC/MD_RS
+                          /BIC/MD_EMP
+                          /BIC/MD_PROM
+                          /BIC/MD_S_TY
+                          /BIC/MD_CPON
+                          RECORDMODE.
+    TYPES:
+      _ty_t_TG_1        TYPE STANDARD TABLE OF _ty_s_TG_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    types:
+    begin of _R_7,
+        _1_1           TYPE /BIC/OIMD_CPON,
+
+      end of _R_7.
+    types:
+    begin of _R_9,
+        _1_1           TYPE /BIC/OIMD_SON,
+
+      end of _R_9.
+    types:
+    begin of _R_11,
+        _1_1           TYPE /BIC/OIMD_FRG,
+
+      end of _R_11.
+    types:
+    begin of _R_13,
+        _1_1           TYPE /BIC/OIMD_CTN,
+
+      end of _R_13.
+    Data:
+      p_check_master_data_exist type RSODSOCHECKONLY read-only,
+      p_r_request               type ref to if_rsbk_request_admintab_view read-only.
+
+    methods:
+    execute
+    importing
+      i_master_data_exist type RSODSOCHECKONLY
+      i_r_inbound         type ref to cl_rsbk_data
+      i_r_log             type ref to cl_rsbm_log_cursor_step
+      i_r_request         type ref to if_rsbk_request_admintab_view OPTIONAL
+      i_r_trfn_cmd        type ref to CL_RSBK_CMD_T OPTIONAL
+    exporting
+      e_r_outbound        type ref to cl_rsbk_data
+    RAISING
+      cx_rs_step_failed.
+
+
+  private section.
+
+    type-pools: rsd, rrsv, rstr.
+
+*   Flag structure for dynamic rule suppression
+    types:
+  begin of _r_s_supp,
+      _1                    type rs_bool,
+      _2                    type rs_bool,
+      _3                    type rs_bool,
+      _4                    type rs_bool,
+      _5                    type rs_bool,
+      _6                    type rs_bool,
+      _7                    type rs_bool,
+      _8                    type rs_bool,
+      _9                    type rs_bool,
+      _10                   type rs_bool,
+      _11                   type rs_bool,
+      _12                   type rs_bool,
+      _13                   type rs_bool,
+      _14                   type rs_bool,
+      _15                   type rs_bool,
+      _16                   type rs_bool,
+      _17                   type rs_bool,
+      _18                   type rs_bool,
+      _19                   type rs_bool,
+      _20                   type rs_bool,
+      _21                   type rs_bool,
+      _22                   type rs_bool,
+      _23                   type rs_bool,
+      _24                   type rs_bool,
+      _25                   type rs_bool,
+      _26                   type rs_bool,
+  end   of _r_s_supp.
+
+    methods:
+    get_fields_populated0001
+      exporting
+        e_t_fieldnm type rsar_t_fieldnames.
+
+
+    TYPES:
+      BEGIN OF _ty_G_1,
+*      InfoObject: 0RECORDMODE BW Delta Process: Update Mode.
+        RECORDMODE           TYPE RODMUPDMOD,
+*      InfoObject: 0RECORDMODE BW Delta Process: Update Mode.
+        RECORDMODE_AGGR           TYPE RODMUPDMOD,
+      END   OF _ty_G_1.
+    TYPES:
+      BEGIN OF _ty_G_2,
+*      InfoObject: MD_CURR Currency MD.
+        /BIC/MD_CURR           TYPE /BIC/OIMD_CURR,
+*      InfoObject: MD_SON Sales Order Number.
+        /BIC/MD_SON           TYPE /BIC/OIMD_SON,
+*      InfoObject: MD_SOLN Sales Order Line Number.
+        /BIC/MD_SOLN           TYPE /BIC/OIMD_SOLN,
+*      InfoObject: MD_FRG Freight Number.
+        /BIC/MD_FRG           TYPE /BIC/OIMD_FRG,
+*      InfoObject: MD_REVNUM Revision Number.
+        /BIC/MD_REVNUM           TYPE /BIC/OIMD_REVNUM,
+*      InfoObject: MD_CTN Carrier Tracking Number.
+        /BIC/MD_CTN           TYPE /BIC/OIMD_CTN,
+*      InfoObject: MD_ORD Order Date.
+        /BIC/MD_ORD           TYPE /BIC/OIMD_ORD,
+*      InfoObject: MD_DD Due Date.
+        /BIC/MD_DD           TYPE /BIC/OIMD_DD,
+*      InfoObject: MD_SHD Ship Date.
+        /BIC/MD_SHD           TYPE /BIC/OIMD_SHD,
+*      InfoObject: MD_OQ Order Quantity.
+        /BIC/MD_OQ           TYPE /BIC/OIMD_OQ,
+*      InfoObject: MD_UNPR Unit Price.
+        /BIC/MD_UNPR           TYPE /BIC/OIMD_UNPR,
+*      InfoObject: MD_CURRN Currency Unit.
+        /BIC/MD_CURRN           TYPE /BIC/OIMD_CURRN,
+*      InfoObject: MD_EXAM Gross Sales Revenue (GSR).
+        /BIC/MD_EXAM           TYPE /BIC/OIMD_EXAM,
+*      InfoObject: MD_DISPER Discount Percentage.
+        /BIC/MD_DISPER           TYPE /BIC/OIMD_DISPER,
+*      InfoObject: MD_DA Discount Amount.
+        /BIC/MD_DA           TYPE /BIC/OIMD_DA,
+*      InfoObject: MD_PRST Product Standard Cost.
+        /BIC/MD_PRST           TYPE /BIC/OIMD_PRST,
+*      InfoObject: MD_TPC Cost of Goods Sold (COGS).
+        /BIC/MD_TPC           TYPE /BIC/OIMD_TPC,
+*      InfoObject: MD_SA Net Sales Revenue (NSR).
+        /BIC/MD_SA           TYPE /BIC/OIMD_SA,
+*      InfoObject: MD_TA Tax Amount.
+        /BIC/MD_TA           TYPE /BIC/OIMD_TA,
+*      InfoObject: MD_PROD Product MD.
+        /BIC/MD_PROD           TYPE /BIC/OIMD_PROD,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS           TYPE /BIC/OIMD_RS,
+*      InfoObject: MD_EMP Employee.
+        /BIC/MD_EMP           TYPE /BIC/OIMD_EMP,
+*      InfoObject: MD_PROM Promotion MD.
+        /BIC/MD_PROM           TYPE /BIC/OIMD_PROM,
+*      InfoObject: MD_S_TY Sales Territory MD.
+        /BIC/MD_S_TY           TYPE /BIC/OIMD_S_TY,
+*      InfoObject: MD_CPON Customer Purchase Order Number.
+        /BIC/MD_CPON           TYPE /BIC/OIMD_CPON,
+      END   OF _ty_G_2.
+
+endclass.                    "endclass
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform IMPLEMENTATION
+*---------------------------------------------------------------------*
+*---------------------------------------------------------------------*
+class lcl_transform implementation.
+
+  method execute.
+*=== Segments ===
+    field-symbols:
+      <_yt_SC_1>            type table,
+      <_yt_SC_1_ty>          type _ty_t_SC_1,
+      <_ys_SC_1>            type _ty_s_SC_1.
+    field-symbols:
+      <_yt_TG_1>            type _ty_t_TG_1,
+      <_yth_TG_1>           type _ty_th_TG_1,
+      <_ys_TG_1>            type _ty_s_TG_1.
+
+    field-symbols: <_ys_rimage> type _ty_s_TG_1.
+
+    data:
+       lr_CX_abort               TYPE REF TO CX_rsrout_abort,
+       lr_cx_sy_conversion_error type ref to cx_sy_conversion_error,
+       lr_cx_sy_arithmetic_error type ref to cx_sy_arithmetic_error,
+       lr_cx_root                type ref to cx_root.
+    data: lr_cx_rsbk_errorcount type ref to cx_rsbk_errorcount.
+    data: l_rx_rsfo_error_in_function type ref to cx_rsfo_error_in_function,
+          l_s_balmsg type bal_s_msg.
+    data:
+       lr_msg_coll               type ref to cl_rso_msg,
+       _skip                     TYPE rs_bool,
+       _skip_seg_all             TYPE rs_bool,
+       _ls_msg                   type rsmonitor,
+       _ls_msg_s                 type rstmonitor,
+       _ls_msg_rec               type rstr_ty_s_monitor_rec,
+       _lt_msg                   type rstr_ty_t_monitor,
+       _lt_msg_s                 type rstr_ty_t_monitors,
+       _lt_msg_rec               type rstr_ty_t_monitor_rec,
+       _curr_rule                type cl_rstran_runtime_exe=>ty_s_rule_context,
+       _ls_supp                  type _r_s_supp.
+    data:
+       l_fieldname               type string.
+
+    field-symbols:
+       <l_record_no>             type any,
+       <l_record_all>            type any.
+
+    data: l_segid                type rsbk_segid.
+
+    data: l_dummy                type c.
+
+    data:
+      _r_SC_1               type ref to cl_rsbk_data_segment,
+      _rdt_SC_1             type ref to data.
+    data:
+      _r_TG_1               type ref to cl_rsbk_data_segment,
+      _rds_TG_1             type ref to data,
+      _rdt_TG_1             type ref to data,
+      _rdt_TG_1_dp          type ref to data.
+*=== duplicate check in case of HANA ===
+DATA: _r_ts_data TYPE REF TO data,
+      _l_key(20)   type c value 'RECORD'.
+
+FIELD-SYMBOLS: <_ts_data> TYPE SORTED TABLE.
+
+*=== Step_type specific ===
+    data:
+     l_recno_SC_1 type sy-tabix.
+
+    data:
+     l_recno_TG_1 type sy-tabix.
+*=== Group ===
+    data:
+    _G_1         type _ty_G_1,
+    _G_1_subrc   type sysubrc,
+    _G_1_tabix   type sytabix,
+    _G_1_subrc_2   type sysubrc,
+    _G_1_tabix_2   type sytabix,
+    _G_1_subrc_3   type sysubrc,
+    _G_1_tabix_3   type sytabix.
+
+    data:
+    _G_2         type _ty_G_2,
+    _G_2_subrc   type sysubrc,
+    _G_2_tabix   type sytabix,
+    _G_2_subrc_2   type sysubrc,
+    _G_2_tabix_2   type sytabix,
+    _G_2_subrc_3   type sysubrc,
+    _G_2_tabix_3   type sytabix.
+
+
+*=== Step_type specific ===
+    data:
+* definition for conversion exit
+    l_chavl_in_c  type rschavl,                             "#EC *
+    l_chavl_out_c type rschavl,                             "#EC *
+    ls_cob_pro    type rsd_s_cob_pro,                       "#EC *
+    l_subrc_con   type sy-subrc.                            "#EC *
+    data:
+     l_requid   TYPE cl_rsbk_request=>t_requid,
+     l_request  TYPE rsrequest.
+    data:
+     ls_cross         type RSBM_S_CROSSTAB.
+
+
+
+
+    data:
+      _R_7 type _R_7.
+    data:
+      _R_9 type _R_9.
+    data:
+      _R_11 type _R_11.
+    data:
+      _R_13 type _R_13.
+
+* ==== 0. initialization
+   CREATE object lr_msg_coll.
+* ==== 1. unpack segments
+    _r_SC_1              = i_r_inbound->get_segment( 0001 ).
+    _rdt_SC_1            = _r_SC_1->get_data( i_with_recno = rs_c_true ).
+    assign _rdt_SC_1->*            to <_yt_SC_1>.
+    l_fieldname = 'RECORD_ALL'.
+    assign (l_fieldname) to <l_record_all>.
+    if sy-subrc = 0.
+      describe table <_yt_SC_1> lines <l_record_all>.
+    endif.
+
+
+    data: l_t_fieldnm type rsar_t_fieldnames.
+
+    _r_TG_1              = e_r_outbound->get_segment( 0001 ).
+    _rdt_TG_1_dp         = _r_TG_1->get_empty_table( ).
+    assign _rdt_TG_1_dp->*         to <_yt_TG_1>.
+
+*   get transformation target list and set in segment
+    call method get_fields_populated0001
+      importing
+        e_t_fieldnm = l_t_fieldnm.
+    _r_TG_1->set_t_fields_populated( l_t_fieldnm ).
+
+    _rds_TG_1            = _r_TG_1->get_workarea( ).
+    assign _rds_TG_1->*            to <_ys_TG_1>.
+    create data _rdt_TG_1 type _ty_th_TG_1.
+    assign _rdt_TG_1->*            to <_yth_TG_1>.
+
+    _curr_rule-tranid  = '0FLXDSKYMZALJXUYFY6L5K61AVNABJMC'.
+    _curr_rule-progid  = '0OUY6JZNKDGX433QJQTXXMN0E'.
+    _curr_rule-version = '0'.
+
+    call method cl_rstran_runtime_exe=>get_suppressed_rules
+      exporting
+        i_tranid             = _curr_rule-tranid
+        i_r_data             = e_r_outbound
+        i_r_data_in          = i_r_inbound
+      importing
+        e_s_suppressed_rules = _ls_supp.
+
+*   set attributs
+    p_check_master_data_exist = i_master_data_exist.
+    p_r_request               = i_r_request.
+    l_segid                   = '0001'.
+
+    l_requid = i_r_inbound->n_requid.
+    if l_requid is not initial.
+      TRY.
+          l_request = cl_rsbk_request=>create_from_db(
+             i_requid = l_requid )->get_requid30( ).
+        CATCH cx_root INTO DATA(l_r_x).
+          MESSAGE x299(rsbk).
+      ENDTRY.
+    endif.
+
+
+* ==== Debugging ====
+* Breakpoint after start routine
+  if i_r_trfn_cmd is bound.
+    READ TABLE i_r_trfn_cmd->n_th_bp
+         TRANSPORTING NO FIELDS
+         WITH TABLE KEY bpid    = 3
+                        datapid = i_r_inbound->n_datapakid.
+    IF sy-subrc = 0.
+
+* --- Data ---
+*     See datapackage below
+
+* --- Debugging ---
+      BREAK-POINT.                                           "#EC NOBREAK
+
+    ENDIF.
+  endif.
+
+
+
+* ==== 2. process data package
+    i_r_log->add_substep( 'RULES' ).
+    LOOP AT <_yt_SC_1> assigning <_ys_SC_1>.
+
+      CLEAR:
+        _G_1,
+        _G_2,
+        _lt_msg_rec,
+        _lt_msg.
+     _curr_rule-record = l_recno_SC_1 = <_ys_SC_1>-record.
+     if not <l_record_no> is assigned.
+       if <_ys_SC_1>-record = 1.
+         l_fieldname = 'RECORD_NO'.
+         assign (l_fieldname) to <l_record_no>.
+         if sy-subrc = 0.
+           <l_record_no> = <_ys_SC_1>-record.
+         endif.
+       endif.
+     else.
+       <l_record_no> = <_ys_SC_1>-record.
+     endif.
+      TRY.
+
+* ======  RULES
+*<<<    Rule ID: '1'.
+          IF _ls_supp-_1 EQ rs_c_false.
+            _curr_rule-ruleid = '1'.
+*       Step ID: '1', Type: 'CONSTANT'.
+            _curr_rule-stepid = '1'.
+    _G_1-RECORDMODE = ' '.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '2'.
+          IF _ls_supp-_2 EQ rs_c_false.
+            _curr_rule-ruleid = '2'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_PROD = <_ys_SC_1>-PRODUCTFK.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '3'.
+          IF _ls_supp-_3 EQ rs_c_false.
+            _curr_rule-ruleid = '3'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_RS = <_ys_SC_1>-RESELLERKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '4'.
+          IF _ls_supp-_4 EQ rs_c_false.
+            _curr_rule-ruleid = '4'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_EMP = <_ys_SC_1>-EMPKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '5'.
+          IF _ls_supp-_5 EQ rs_c_false.
+            _curr_rule-ruleid = '5'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_PROM = <_ys_SC_1>-PROMOKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '6'.
+          IF _ls_supp-_6 EQ rs_c_false.
+            _curr_rule-ruleid = '6'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_S_TY = <_ys_SC_1>-SALESTERRITORYKE.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '7'.
+          IF _ls_supp-_7 EQ rs_c_false.
+            _curr_rule-ruleid = '7'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _R_7-_1_1 = <_ys_SC_1>-CUSTOMERPURCHASE.
+*       Step ID: '2', Type: 'CONVERT'.
+            _curr_rule-stepid = '2'.
+    CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+          ID 'INPUT'  FIELD _R_7-_1_1
+          ID 'OUTPUT' FIELD _G_2-/BIC/MD_CPON.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '8'.
+          IF _ls_supp-_8 EQ rs_c_false.
+            _curr_rule-ruleid = '8'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_CURR = <_ys_SC_1>-CURRENCYKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '9'.
+          IF _ls_supp-_9 EQ rs_c_false.
+            _curr_rule-ruleid = '9'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _R_9-_1_1 = <_ys_SC_1>-SALESORDERNUM.
+*       Step ID: '2', Type: 'CONVERT'.
+            _curr_rule-stepid = '2'.
+    CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+          ID 'INPUT'  FIELD _R_9-_1_1
+          ID 'OUTPUT' FIELD _G_2-/BIC/MD_SON.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '10'.
+          IF _ls_supp-_10 EQ rs_c_false.
+            _curr_rule-ruleid = '10'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_SOLN = <_ys_SC_1>-SALESORDERLINENU.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '11'.
+          IF _ls_supp-_11 EQ rs_c_false.
+            _curr_rule-ruleid = '11'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _R_11-_1_1 = <_ys_SC_1>-FREIGHT.
+*       Step ID: '2', Type: 'CONVERT'.
+            _curr_rule-stepid = '2'.
+    CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+          ID 'INPUT'  FIELD _R_11-_1_1
+          ID 'OUTPUT' FIELD _G_2-/BIC/MD_FRG.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '12'.
+          IF _ls_supp-_12 EQ rs_c_false.
+            _curr_rule-ruleid = '12'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_REVNUM = <_ys_SC_1>-REVISIONNUMBER.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '13'.
+          IF _ls_supp-_13 EQ rs_c_false.
+            _curr_rule-ruleid = '13'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _R_13-_1_1 = <_ys_SC_1>-CARRIERTRACKINGN.
+*       Step ID: '2', Type: 'CONVERT'.
+            _curr_rule-stepid = '2'.
+    CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+          ID 'INPUT'  FIELD _R_13-_1_1
+          ID 'OUTPUT' FIELD _G_2-/BIC/MD_CTN.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '14'.
+          IF _ls_supp-_14 EQ rs_c_false.
+            _curr_rule-ruleid = '14'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_ORD = <_ys_SC_1>-ORDER.
+*       Step ID: '0', Type: '_INITIAL_VALUE_CHECK'.
+            _curr_rule-stepid = '0'.
+    IF _G_2-/BIC/MD_ORD CO ' 0'.
+      CLEAR _G_2-/BIC/MD_ORD.
+    ENDIF.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '15'.
+          IF _ls_supp-_15 EQ rs_c_false.
+            _curr_rule-ruleid = '15'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_DD = <_ys_SC_1>-DUE.
+*       Step ID: '0', Type: '_INITIAL_VALUE_CHECK'.
+            _curr_rule-stepid = '0'.
+    IF _G_2-/BIC/MD_DD CO ' 0'.
+      CLEAR _G_2-/BIC/MD_DD.
+    ENDIF.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '16'.
+          IF _ls_supp-_16 EQ rs_c_false.
+            _curr_rule-ruleid = '16'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_SHD = <_ys_SC_1>-SHIP.
+*       Step ID: '0', Type: '_INITIAL_VALUE_CHECK'.
+            _curr_rule-stepid = '0'.
+    IF _G_2-/BIC/MD_SHD CO ' 0'.
+      CLEAR _G_2-/BIC/MD_SHD.
+    ENDIF.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '17'.
+          IF _ls_supp-_17 EQ rs_c_false.
+            _curr_rule-ruleid = '17'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_OQ = <_ys_SC_1>-ORDERQUANTITY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '18'.
+          IF _ls_supp-_18 EQ rs_c_false.
+            _curr_rule-ruleid = '18'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_UNPR = <_ys_SC_1>-UNITPRICE.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '19'.
+          IF _ls_supp-_19 EQ rs_c_false.
+            _curr_rule-ruleid = '19'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_CURRN = <_ys_SC_1>-CURRENCY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '20'.
+          IF _ls_supp-_20 EQ rs_c_false.
+            _curr_rule-ruleid = '20'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_EXAM = <_ys_SC_1>-EXTENDEDAMOUNT.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '21'.
+          IF _ls_supp-_21 EQ rs_c_false.
+            _curr_rule-ruleid = '21'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_DISPER = <_ys_SC_1>-DISCOUNTPERCENTA.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '22'.
+          IF _ls_supp-_22 EQ rs_c_false.
+            _curr_rule-ruleid = '22'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_DA = <_ys_SC_1>-DISCOUNTAMOUNT.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '23'.
+          IF _ls_supp-_23 EQ rs_c_false.
+            _curr_rule-ruleid = '23'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_PRST = <_ys_SC_1>-PRODUCTSTANDARTC.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '24'.
+          IF _ls_supp-_24 EQ rs_c_false.
+            _curr_rule-ruleid = '24'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_TPC = <_ys_SC_1>-TOTALPRODUCTCOST.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '25'.
+          IF _ls_supp-_25 EQ rs_c_false.
+            _curr_rule-ruleid = '25'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_SA = <_ys_SC_1>-SALESAMOUNT.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '26'.
+          IF _ls_supp-_26 EQ rs_c_false.
+            _curr_rule-ruleid = '26'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _curr_rule-stepid = '1'.
+    _G_2-/BIC/MD_TA = <_ys_SC_1>-TAXAMOUNT.
+          ENDIF.  "suppressed RULE
+*>>>
+
+        IF _lt_msg_rec is not initial.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                   = i_r_log
+              i_rule_context            = _curr_rule
+              I_SEG_ID                  = `1`
+              I_S_DATA                  = <_ys_SC_1>
+            CHANGING
+              c_t_msg                   = _lt_msg_rec.
+        ENDIF.
+
+        CATCH cx_rsrout_skip_record INTO lr_cx_root.
+          _skip_seg_all = rs_c_true.
+          IF _lt_msg[] IS NOT INITIAL.
+            _ls_msg_rec-ruleid   = _curr_rule-ruleid.
+            _ls_msg_rec-stepid   = _curr_rule-stepid.
+            _ls_msg_rec-_s-recno = _curr_rule-record.
+            LOOP at _lt_msg INTO _ls_msg.
+              MOVE-CORRESPONDING _ls_msg to _ls_msg_rec-_s.
+              APPEND _ls_msg_rec to _Lt_msg_rec.
+            ENDLOOP.
+          ENDIF.
+          IF _lt_msg_rec is not initial.
+            CALL METHOD cl_rstran_runtime_exe=>message_proxy
+              EXPORTING
+                i_r_log                   = i_r_log
+                i_cx_root                 = lr_cx_root
+                i_rule_context            = _curr_rule
+                I_SEG_ID                  = `1`
+                I_S_DATA                  = <_ys_SC_1>
+             CHANGING
+                c_t_msg                   = _lt_msg_rec.
+          ENDIF.
+
+        CATCH cx_rsfo_skip_record INTO lr_cx_root.
+          _skip_seg_all = rs_c_true.
+
+        CATCH cx_rsfo_skip_record_as_error INTO lr_cx_root.
+          _skip_seg_all = rs_c_true.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                   = i_r_log
+              i_cx_root                 = lr_cx_root
+              i_rule_context            = _curr_rule
+              I_SEG_ID                  = `1`
+              I_S_DATA                  = <_ys_SC_1>
+            CHANGING
+              c_t_msg                   = _lt_msg_rec.
+
+        CATCH cx_rsbk_errorcount into lr_cx_rsbk_errorcount.
+*         errorcount can't be determined
+          _skip_seg_all = rs_c_true.
+          CALL FUNCTION 'RS_EXCEPTION_TO_SYMSG'
+            EXPORTING
+              i_r_exception       = lr_cx_rsbk_errorcount
+*             I_DEEPEST           =
+                    .
+          move-corresponding syst to _ls_msg_rec-_s.
+          _ls_msg_rec-_s-skipped = rs_c_true.
+          APPEND _ls_msg_rec to _Lt_msg_rec.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                   = i_r_log
+              i_rule_context            = _curr_rule
+              I_SEG_ID                  = `1`
+              I_S_DATA                  = <_ys_SC_1>
+            CHANGING
+              c_t_msg                   = _lt_msg_rec.
+
+        CATCH cx_foev_error_in_function INTO lr_cx_root.            "HW 980549
+          _skip_seg_all = rs_c_true.
+          clear _ls_msg_rec.
+          _ls_msg_rec-ruleid   = _curr_rule-ruleid.
+          _ls_msg_rec-stepid   = _curr_rule-stepid.
+          _ls_msg_rec-_s-recno = _curr_rule-record.
+
+          try.
+            l_rx_rsfo_error_in_function ?= lr_cx_root.
+            call method l_rx_rsfo_error_in_function->get_message
+              importing
+                e_s_msg = l_s_balmsg.
+            move-corresponding l_s_balmsg to _ls_msg_rec-_s.
+            APPEND _ls_msg_rec to _Lt_msg_rec.
+           catch  cx_sy_move_cast_error.
+          endtry.
+
+          message e535(rsar)
+            with _curr_rule-ruleid _curr_rule-record
+            into _ls_msg_rec-_s-msgty.
+          move-corresponding syst to _ls_msg_rec-_s.
+          _ls_msg_rec-_s-skipped = rs_c_true.
+          APPEND _ls_msg_rec to _Lt_msg_rec.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                   = i_r_log
+              i_rule_context            = _curr_rule
+              I_SEG_ID                  = `1`
+              I_S_DATA                  = <_ys_SC_1>
+            CHANGING
+              c_t_msg                   = _lt_msg_rec.
+
+        CATCH cx_sy_arithmetic_error into lr_cx_sy_arithmetic_error.
+           _skip_seg_all = rs_c_true.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                  = i_r_log
+              i_cx_sy_arithmetic_error = lr_cx_sy_arithmetic_error
+              i_rule_context           = _curr_rule
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_ys_SC_1>.
+
+        CATCH cx_sy_conversion_error  INTO lr_cx_sy_conversion_error.
+          _skip_seg_all = rs_c_true.
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                  = i_r_log
+              i_cx_sy_conversion_error = lr_cx_sy_conversion_error
+              i_rule_context           = _curr_rule
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_ys_SC_1>.
+
+        CATCH cx_root INTO lr_cx_root.
+          _skip_seg_all = rs_c_true.
+*--       all other cases handled by message proxy
+          IF _lt_msg[] IS NOT INITIAL.
+            _ls_msg_rec-ruleid   = _curr_rule-ruleid.
+            _ls_msg_rec-stepid   = _curr_rule-stepid.
+            _ls_msg_rec-_s-recno = _curr_rule-record.
+            LOOP at _lt_msg INTO _ls_msg.
+              MOVE-CORRESPONDING _ls_msg to _ls_msg_rec-_s.
+              APPEND _ls_msg_rec to _Lt_msg_rec.
+            ENDLOOP.
+          ENDIF.
+
+          CALL METHOD cl_rstran_runtime_exe=>message_proxy
+            EXPORTING
+              i_r_log                  = i_r_log
+              i_cx_root                = lr_cx_root
+              i_rule_context           = _curr_rule
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_ys_SC_1>
+            CHANGING
+              c_t_msg                   = _lt_msg_rec.
+
+      ENDTRY.       "RECORD
+
+* =====  PUT groups to target
+      IF _skip_seg_all IS INITIAL.
+
+      IF _G_1-RECORDMODE = rstr_c_recordmode-reverse_image or
+         _G_1-RECORDMODE = rstr_c_recordmode-delete_image.
+        READ TABLE <_yth_TG_1>
+          WITH TABLE KEY
+            /BIC/MD_PROD              = _G_2-/BIC/MD_PROD
+            /BIC/MD_RS              = _G_2-/BIC/MD_RS
+            /BIC/MD_EMP              = _G_2-/BIC/MD_EMP
+            /BIC/MD_PROM              = _G_2-/BIC/MD_PROM
+            /BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY
+            /BIC/MD_CPON              = _G_2-/BIC/MD_CPON
+            RECORDMODE              = rstr_c_recordmode-after_image
+          ASSIGNING <_ys_TG_1>.
+        _G_2_subrc_2 = sy-subrc.
+        _G_2_tabix_2 = sy-tabix.
+
+        IF _G_2_subrc_2 = 0.
+          READ TABLE <_yth_TG_1>
+            WITH TABLE KEY
+              /BIC/MD_PROD              = _G_2-/BIC/MD_PROD
+              /BIC/MD_RS              = _G_2-/BIC/MD_RS
+              /BIC/MD_EMP              = _G_2-/BIC/MD_EMP
+              /BIC/MD_PROM              = _G_2-/BIC/MD_PROM
+              /BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY
+              /BIC/MD_CPON              = _G_2-/BIC/MD_CPON
+              RECORDMODE              = _G_1-RECORDMODE
+            ASSIGNING <_ys_rimage>.
+          _G_2_subrc_3 = sy-subrc.
+          _G_2_tabix_3 = sy-tabix.
+
+          IF _G_2_subrc_3 <> 0.
+            assign _rds_TG_1->* to <_ys_rimage>.
+            <_ys_rimage> = <_ys_TG_1>.
+            <_ys_rimage>-recordmode = _G_1-RECORDMODE.
+            INSERT <_ys_rimage> INTO TABLE <_yth_TG_1>.
+            IF sy-subrc <> 0.
+              CALL METHOD cl_rsbm_log_step=>raise_step_failed_callstack.
+            ENDIF.
+            unassign <_ys_TG_1>.
+            DELETE TABLE <_yth_TG_1>
+              WITH TABLE KEY
+                /BIC/MD_PROD              = _G_2-/BIC/MD_PROD
+                /BIC/MD_RS              = _G_2-/BIC/MD_RS
+                /BIC/MD_EMP              = _G_2-/BIC/MD_EMP
+                /BIC/MD_PROM              = _G_2-/BIC/MD_PROM
+                /BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY
+                /BIC/MD_CPON              = _G_2-/BIC/MD_CPON
+                RECORDMODE              = rstr_c_recordmode-after_image
+              .
+          ELSE.
+*   aggregation MOVE
+            <_ys_rimage>-/BIC/MD_CURR = <_ys_TG_1>-/BIC/MD_CURR.
+            <_ys_rimage>-/BIC/MD_SON = <_ys_TG_1>-/BIC/MD_SON.
+            <_ys_rimage>-/BIC/MD_SOLN = <_ys_TG_1>-/BIC/MD_SOLN.
+            <_ys_rimage>-/BIC/MD_FRG = <_ys_TG_1>-/BIC/MD_FRG.
+            <_ys_rimage>-/BIC/MD_REVNUM = <_ys_TG_1>-/BIC/MD_REVNUM.
+            <_ys_rimage>-/BIC/MD_CTN = <_ys_TG_1>-/BIC/MD_CTN.
+            <_ys_rimage>-/BIC/MD_ORD = <_ys_TG_1>-/BIC/MD_ORD.
+            <_ys_rimage>-/BIC/MD_DD = <_ys_TG_1>-/BIC/MD_DD.
+            <_ys_rimage>-/BIC/MD_SHD = <_ys_TG_1>-/BIC/MD_SHD.
+            <_ys_rimage>-/BIC/MD_OQ = <_ys_TG_1>-/BIC/MD_OQ.
+            <_ys_rimage>-/BIC/MD_UNPR = <_ys_TG_1>-/BIC/MD_UNPR.
+            <_ys_rimage>-/BIC/MD_CURRN = <_ys_TG_1>-/BIC/MD_CURRN.
+            <_ys_rimage>-/BIC/MD_EXAM = <_ys_TG_1>-/BIC/MD_EXAM.
+            <_ys_rimage>-/BIC/MD_DISPER = <_ys_TG_1>-/BIC/MD_DISPER.
+            <_ys_rimage>-/BIC/MD_DA = <_ys_TG_1>-/BIC/MD_DA.
+            <_ys_rimage>-/BIC/MD_PRST = <_ys_TG_1>-/BIC/MD_PRST.
+            <_ys_rimage>-/BIC/MD_TPC = <_ys_TG_1>-/BIC/MD_TPC.
+            <_ys_rimage>-/BIC/MD_SA = <_ys_TG_1>-/BIC/MD_SA.
+            <_ys_rimage>-/BIC/MD_TA = <_ys_TG_1>-/BIC/MD_TA.
+
+            unassign <_ys_TG_1>.
+            DELETE TABLE <_yth_TG_1>
+              WITH TABLE KEY
+                /BIC/MD_PROD              = _G_2-/BIC/MD_PROD
+                /BIC/MD_RS              = _G_2-/BIC/MD_RS
+                /BIC/MD_EMP              = _G_2-/BIC/MD_EMP
+                /BIC/MD_PROM              = _G_2-/BIC/MD_PROM
+                /BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY
+                /BIC/MD_CPON              = _G_2-/BIC/MD_CPON
+                RECORDMODE              = rstr_c_recordmode-after_image
+              .
+          ENDIF.
+        ELSE.
+*         Nothing to do here.
+        ENDIF.
+      ENDIF.
+    IF _G_1-RECORDMODE = rstr_c_recordmode-before_image or
+       _G_1-RECORDMODE = rstr_c_recordmode-new_image.
+      _G_1-RECORDMODE_AGGR = rstr_c_recordmode-after_image.
+    ELSE.
+      _G_1-RECORDMODE_AGGR = _G_1-RECORDMODE.
+    ENDIF.
+    READ TABLE <_yth_TG_1>
+      WITH TABLE KEY
+       /BIC/MD_PROD              = _G_2-/BIC/MD_PROD
+       /BIC/MD_RS              = _G_2-/BIC/MD_RS
+       /BIC/MD_EMP              = _G_2-/BIC/MD_EMP
+       /BIC/MD_PROM              = _G_2-/BIC/MD_PROM
+       /BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY
+       /BIC/MD_CPON              = _G_2-/BIC/MD_CPON
+       RECORDMODE              = _G_1-RECORDMODE_AGGR
+       ASSIGNING <_ys_TG_1>.
+    _G_2_subrc = sy-subrc.
+    _G_2_tabix = sy-tabix.
+
+    IF _G_2_subrc = 0.
+*   aggregation MOVE
+      IF _G_1-RECORDMODE <> rstr_c_recordmode-before_image.
+        <_ys_TG_1>-/BIC/MD_CURR = _G_2-/BIC/MD_CURR.
+        <_ys_TG_1>-/BIC/MD_SON = _G_2-/BIC/MD_SON.
+        <_ys_TG_1>-/BIC/MD_SOLN = _G_2-/BIC/MD_SOLN.
+        <_ys_TG_1>-/BIC/MD_FRG = _G_2-/BIC/MD_FRG.
+        <_ys_TG_1>-/BIC/MD_REVNUM = _G_2-/BIC/MD_REVNUM.
+        <_ys_TG_1>-/BIC/MD_CTN = _G_2-/BIC/MD_CTN.
+        <_ys_TG_1>-/BIC/MD_ORD = _G_2-/BIC/MD_ORD.
+        <_ys_TG_1>-/BIC/MD_DD = _G_2-/BIC/MD_DD.
+        <_ys_TG_1>-/BIC/MD_SHD = _G_2-/BIC/MD_SHD.
+        <_ys_TG_1>-/BIC/MD_OQ = _G_2-/BIC/MD_OQ.
+        <_ys_TG_1>-/BIC/MD_UNPR = _G_2-/BIC/MD_UNPR.
+        <_ys_TG_1>-/BIC/MD_CURRN = _G_2-/BIC/MD_CURRN.
+        <_ys_TG_1>-/BIC/MD_EXAM = _G_2-/BIC/MD_EXAM.
+        <_ys_TG_1>-/BIC/MD_DISPER = _G_2-/BIC/MD_DISPER.
+        <_ys_TG_1>-/BIC/MD_DA = _G_2-/BIC/MD_DA.
+        <_ys_TG_1>-/BIC/MD_PRST = _G_2-/BIC/MD_PRST.
+        <_ys_TG_1>-/BIC/MD_TPC = _G_2-/BIC/MD_TPC.
+        <_ys_TG_1>-/BIC/MD_SA = _G_2-/BIC/MD_SA.
+        <_ys_TG_1>-/BIC/MD_TA = _G_2-/BIC/MD_TA.
+      ENDIF.
+      ls_cross-insegid      = 1.
+      ls_cross-inrecord     = l_recno_SC_1.
+      ls_cross-outsegid     = 1.
+      ls_cross-outrecord    = <_ys_TG_1>-record.
+
+      CALL METHOD i_r_log->add_cross_tab
+        EXPORTING
+          I_S_CROSSTAB = ls_cross.
+
+    ELSE.
+      ASSIGN _rds_TG_1->*          to <_ys_TG_1>.
+      CLEAR <_ys_TG_1>.
+      IF _G_1-RECORDMODE = rstr_c_recordmode-before_image.
+*   Key
+        <_ys_TG_1>-/BIC/MD_PROD              = _G_2-/BIC/MD_PROD.
+        <_ys_TG_1>-/BIC/MD_RS               = _G_2-/BIC/MD_RS.
+        <_ys_TG_1>-/BIC/MD_EMP              = _G_2-/BIC/MD_EMP.
+        <_ys_TG_1>-/BIC/MD_PROM              = _G_2-/BIC/MD_PROM.
+        <_ys_TG_1>-/BIC/MD_S_TY              = _G_2-/BIC/MD_S_TY.
+        <_ys_TG_1>-/BIC/MD_CPON              = _G_2-/BIC/MD_CPON.
+        <_ys_TG_1>-RECORDMODE               = _G_1-RECORDMODE_AGGR.
+*   aggregation MOVE; before image is ignored
+      ELSE.
+        <_ys_TG_1>-RECORDMODE = _G_1-RECORDMODE_AGGR.
+        MOVE-CORRESPONDING _G_2 TO <_ys_TG_1>.
+      ENDIF.
+    <_ys_TG_1>-sid       = l_requid.
+    <_ys_TG_1>-datapakid = i_r_inbound->n_datapakid.
+    IF _G_1-RECORDMODE = rstr_c_recordmode-before_image or
+       _G_1-RECORDMODE = rstr_c_recordmode-new_image.
+      _G_1-RECORDMODE = rstr_c_recordmode-after_image.
+    ENDIF.
+
+    MOVE-CORRESPONDING _G_1 TO <_ys_TG_1>.
+      l_recno_TG_1          = l_recno_TG_1 + 1.
+      ls_cross-insegid      = 1.
+      ls_cross-inrecord     = l_recno_SC_1.
+      ls_cross-outsegid     = 1.
+      ls_cross-outrecord    = l_recno_TG_1.
+
+      CALL METHOD i_r_log->add_cross_tab
+        EXPORTING
+          I_S_CROSSTAB = ls_cross.
+
+**     Record# in target = sy-tabix - if sorting of table won't be changed
+      <_ys_TG_1>-record     = l_recno_TG_1.
+
+      INSERT <_ys_TG_1> INTO TABLE <_yth_TG_1>.
+      IF sy-subrc <> 0.
+        CALL METHOD cl_rsbm_log_step=>raise_step_failed_callstack.
+      ENDIF.
+
+    ENDIF.      "Read table
+*
+      ENDIF.
+      CLEAR _skip_seg_all.
+    ENDLOOP.
+* -------- insert table into outbound segment ----
+
+    <_yt_TG_1>[] = <_yth_TG_1>[].
+    CLEAR _rdt_TG_1.
+    FREE  <_yth_TG_1>[].
+
+* ==== Debugging ====
+* Breakpoint before end routine
+  if i_r_trfn_cmd is bound.
+    READ TABLE i_r_trfn_cmd->n_th_bp
+         TRANSPORTING NO FIELDS
+         WITH TABLE KEY bpid    = 4
+                        datapid = i_r_inbound->n_datapakid.
+    IF sy-subrc = 0.
+
+* --- Data ---
+*     See datapackage above..
+
+* --- Debugging ---
+      BREAK-POINT.                                           "#EC NOBREAK
+
+    ENDIF.
+  endif.
+
+
+
+IF l_requid NE 0.
+
+        DATA: l_r_request_0001       TYPE REF TO cl_rsbk_request,
+              l_errorhandling_0001   TYPE rsbkerrorhandling,
+              l_skip_0001            TYPE rs_bool.
+*-- get the request
+        TRY.
+            CALL METHOD cl_rsbk_request=>create_from_db
+              EXPORTING
+                i_requid    = l_requid
+              RECEIVING
+                r_r_request = l_r_request_0001.
+          CATCH cx_rs_not_found .
+        ENDTRY.
+*-- get the error handling setting from the request
+        TRY.
+            CALL METHOD l_r_request_0001->get_errorhandling
+              RECEIVING
+                r_errorhandling = l_errorhandling_0001.
+          CATCH cx_rs_access_error .
+        ENDTRY.
+*-- only in case of error handling on
+        IF l_errorhandling_0001 NE rsbc_c_errorhandling-off.
+          LOOP AT <_yt_TG_1> ASSIGNING <_ys_TG_1>.
+            CALL METHOD i_r_log->verify_record
+              EXPORTING
+                i_segid         = 0001
+                i_record        = <_ys_TG_1>-record
+                i_use_crosstab  = rs_c_true               " As it is the Target format
+              RECEIVING
+                r_skip          = l_skip_0001
+              EXCEPTIONS
+                too_many_errors = 1
+                not_in_crosstab = 2
+                others          = 3.
+              IF sy-subrc <> 0.
+*-- too many errors/ not in crosstab abort
+                 CALL FUNCTION 'RS_SYMESSAGE_TO_EXCEPTION'
+                    EXPORTING
+                      i_exception = 'CX_RS_MSG'
+                    IMPORTING
+                      e_r_exception = lr_cx_root.
+                 CALL METHOD cl_rsbm_log_step=>raise_step_failed_callstack
+                  EXPORTING
+                      i_previous  =  lr_cx_root.
+              ELSEIF not l_skip_0001 is initial.
+                  DELETE <_yt_TG_1>.
+              ENDIF.
+            ENDLOOP.
+       ENDIF.
+ENDIF.
+
+    _r_TG_1->insert_table( _rdt_TG_1_dp ).
+  ENDMETHOD.                 "execute
+
+  METHOD get_fields_populated0001.
+
+    append '/BIC/MD_PROD' to e_t_fieldnm.
+    append '/BIC/MD_RS' to e_t_fieldnm.
+    append '/BIC/MD_EMP' to e_t_fieldnm.
+    append '/BIC/MD_PROM' to e_t_fieldnm.
+    append '/BIC/MD_S_TY' to e_t_fieldnm.
+    append '/BIC/MD_CPON' to e_t_fieldnm.
+    append 'RECORDMODE' to e_t_fieldnm.
+    append '/BIC/MD_CURR' to e_t_fieldnm.
+    append '/BIC/MD_SON' to e_t_fieldnm.
+    append '/BIC/MD_SOLN' to e_t_fieldnm.
+    append '/BIC/MD_FRG' to e_t_fieldnm.
+    append '/BIC/MD_REVNUM' to e_t_fieldnm.
+    append '/BIC/MD_CTN' to e_t_fieldnm.
+    append '/BIC/MD_ORD' to e_t_fieldnm.
+    append '/BIC/MD_DD' to e_t_fieldnm.
+    append '/BIC/MD_SHD' to e_t_fieldnm.
+    append '/BIC/MD_OQ' to e_t_fieldnm.
+    append '/BIC/MD_UNPR' to e_t_fieldnm.
+    append '/BIC/MD_CURRN' to e_t_fieldnm.
+    append '/BIC/MD_EXAM' to e_t_fieldnm.
+    append '/BIC/MD_DISPER' to e_t_fieldnm.
+    append '/BIC/MD_DA' to e_t_fieldnm.
+    append '/BIC/MD_PRST' to e_t_fieldnm.
+    append '/BIC/MD_TPC' to e_t_fieldnm.
+    append '/BIC/MD_SA' to e_t_fieldnm.
+    append '/BIC/MD_TA' to e_t_fieldnm.
+
+  ENDMETHOD.
+
+
+
+    endclass.                    "lcl_transform IMPLEMENTATION
+
+*&--------------------------------------------------------------------*
+*&      Form  get_runtime_ref
+*&--------------------------------------------------------------------*
+*       text
+*---------------------------------------------------------------------*
+*      -->C_R_EXE    text
+*---------------------------------------------------------------------*
+form get_runtime_ref
+  changing c_r_exe  type ref to object.
+
+*-- singelton instance
+  statics s_r_exe type ref to lcl_transform.
+
+  if s_r_exe is not bound.
+    create object s_r_exe.
+  endif.
+  c_r_exe = s_r_exe.
+
+endform.                    "get_runtime_ref
+
+*.. The following subroutine is for internal (FuGr RSSG) use only! ..*
+
+
+FORM _RSSG_PROGRAM_LOADCHECK
+     CHANGING E_S_PDIR TYPE RSSGTPDIR
+              E_FOUND  TYPE FLAG. "#EC CALLED
+CONSTANTS:
+BEGIN OF _RSSG_C_PCLA,
+  PROGCLASS TYPE  RSSGTPCLA-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  CLIDEP TYPE  RSSGTPCLA-CLIDEP
+    VALUE ' ',
+  GENFLAG TYPE  RSSGTPCLA-GENFLAG
+    VALUE 'X',
+  SUBC TYPE  RSSGTPCLA-SUBC
+    VALUE '1',
+  TEMPLATE TYPE  RSSGTPCLA-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+END   OF _RSSG_C_PCLA,
+
+BEGIN OF _RSSG_C_PDIR,
+  UNI_IDC25 TYPE  RSSGTPDIR-UNI_IDC25
+    VALUE '0OUY6JZNKDGX433QJQTXXMN0E',
+  CLIENT TYPE  RSSGTPDIR-CLIENT
+    VALUE ' ',
+  PROGCLASS TYPE  RSSGTPDIR-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  PROGNAME TYPE  RSSGTPDIR-PROGNAME
+    VALUE 'GP0OUY6JZNKDGX433QJQTXXMN0E',
+  CREUSER TYPE  RSSGTPDIR-CREUSER
+    VALUE 'ASQ28945',
+  CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
+    VALUE 20250530095223,
+  GENUSER TYPE  RSSGTPDIR-GENUSER
+    VALUE 'ASQ28945',
+  GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
+    VALUE 20250605171225,
+  GENRELEASE TYPE  RSSGTPDIR-GENRELEASE
+    VALUE '750',
+  GENSTATUS TYPE  RSSGTPDIR-GENSTATUS
+    VALUE '00',
+  TEMPLATE TYPE  RSSGTPDIR-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+  UPDUSERTPL TYPE  RSSGTPDIR-UPDUSERTPL
+    VALUE 'SAP',
+  UPDDATETPL TYPE  RSSGTPDIR-UPDDATETPL
+    VALUE '20220526',
+  UPDTIMETPL TYPE  RSSGTPDIR-UPDTIMETPL
+    VALUE '153620',
+  SUBC TYPE  RSSGTPDIR-SUBC
+    VALUE '1',
+  WITH_SUBTEMPL TYPE  RSSGTPDIR-WITH_SUBTEMPL
+    VALUE 'X',
+END   OF _RSSG_C_PDIR.
+
+  MOVE-CORRESPONDING _RSSG_C_PDIR TO E_S_PDIR.
+  E_FOUND = 'X'.
+ENDFORM.

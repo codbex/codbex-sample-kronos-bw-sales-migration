@@ -17,8 +17,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-#        TODO: to be enabled once abap transformation is implemented
-#      - run: npm ci
-#        working-directory: ./kronos-poc-project
-#      - run: npm test
-#        working-directory: ./kronos-poc-project
+      - run: npm ci
+      - run: npm test
