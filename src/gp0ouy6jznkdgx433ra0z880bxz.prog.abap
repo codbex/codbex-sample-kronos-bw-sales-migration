@@ -10,7 +10,7 @@
 *  - last changed by SAP
 *  - last changed at 26.05.2022 15:36:20
 * Generation
-*  - User name       ASQ28945
+*  - User name       DUMMY
 *  - Time stamp      06.06.2025 10:24:28 UTC (06.06.2025 12:24:28 CET)
 *  - Release         750
 ***********************************************************************
@@ -32,7 +32,7 @@
 *   Source........: ODSO TD_IS
 *   Target........: CUBE TD_IS_C
 *
-*   Author........: ASQ28945
+*   Author........: DUMMY
 *   Date..........: 06.06.2025 12:24:27
 *
 *   Do not change this source !
@@ -1302,7 +1302,7 @@ ENDIF.
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:24
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1436,7 +1436,7 @@ RESULT = l_Arg1 .
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:24
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1454,7 +1454,7 @@ RESULT = l_Arg2 .
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:24
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1470,7 +1470,7 @@ RESULT = l_Arg1 .
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:24
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1545,11 +1545,11 @@ BEGIN OF _RSSG_C_PDIR,
   PROGNAME TYPE  RSSGTPDIR-PROGNAME
     VALUE 'GP0OUY6JZNKDGX433RA0Z880BXZ',
   CREUSER TYPE  RSSGTPDIR-CREUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
     VALUE 20250530101638,
   GENUSER TYPE  RSSGTPDIR-GENUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
     VALUE 20250606102428,
   GENRELEASE TYPE  RSSGTPDIR-GENRELEASE

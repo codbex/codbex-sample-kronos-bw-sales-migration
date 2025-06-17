@@ -10,7 +10,7 @@
 *  - last changed by SAP
 *  - last changed at 26.05.2022 15:36:20
 * Generation
-*  - User name       ASQ28945
+*  - User name       DUMMY
 *  - Time stamp      06.06.2025 10:06:40 UTC (06.06.2025 12:06:40 CET)
 *  - Release         750
 ***********************************************************************
@@ -32,7 +32,7 @@
 *   Source........: ODSO TD_RS
 *   Target........: CUBE TD_RS_C
 *
-*   Author........: ASQ28945
+*   Author........: DUMMY
 *   Date..........: 06.06.2025 12:06:39
 *
 *   Do not change this source !
@@ -1306,7 +1306,7 @@ ENDIF.
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:06
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1322,7 +1322,7 @@ RESULT = l_Arg1 .
 *Formula Calculator                                  *
 ******************************************************
 *Generated :2025:06:06-12:06
-*User: ASQ28945
+*User: DUMMY
 ******************************************************
 *
 *Data definition:
@@ -1443,11 +1443,11 @@ BEGIN OF _RSSG_C_PDIR,
   PROGNAME TYPE  RSSGTPDIR-PROGNAME
     VALUE 'GP0OUY6JZNKDGX433RUB7Z8MKLJ',
   CREUSER TYPE  RSSGTPDIR-CREUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
     VALUE 20250530102004,
   GENUSER TYPE  RSSGTPDIR-GENUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
     VALUE 20250606100640,
   GENRELEASE TYPE  RSSGTPDIR-GENRELEASE

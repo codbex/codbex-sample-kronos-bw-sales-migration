@@ -10,7 +10,7 @@
 *  - last changed by SAP
 *  - last changed at 26.05.2022 15:36:20
 * Generation
-*  - User name       ASQ28945
+*  - User name       DUMMY
 *  - Time stamp      05.06.2025 12:49:20 UTC (05.06.2025 14:49:20 CET)
 *  - Release         750
 ***********************************************************************
@@ -32,7 +32,7 @@
 *   Source........: RSDS DS_IS_TD                      XTK_FF
 *   Target........: ODSO TD_IS
 *
-*   Author........: ASQ28945
+*   Author........: DUMMY
 *   Date..........: 05.06.2025 14:49:19
 *
 *   Do not change this source !
@@ -1144,11 +1144,11 @@ BEGIN OF _RSSG_C_PDIR,
   PROGNAME TYPE  RSSGTPDIR-PROGNAME
     VALUE 'GP0OUY6JZNKDGX433NT82K6S7YN',
   CREUSER TYPE  RSSGTPDIR-CREUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
     VALUE 20250530085809,
   GENUSER TYPE  RSSGTPDIR-GENUSER
-    VALUE 'ASQ28945',
+    VALUE 'DUMMY',
   GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
     VALUE 20250605124920,
   GENRELEASE TYPE  RSSGTPDIR-GENRELEASE
