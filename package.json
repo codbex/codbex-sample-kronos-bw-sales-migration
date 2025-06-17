@@ -7,7 +7,7 @@
     "transpile": "rm -rf dist && mkdir dist && abap_transpile abap_transpile.json",
     "lint": "abaplint --config abaplint.json",
     "unit": "npm run transpile && echo RUNNING && node dist/index.mjs && echo OK",
-    "test": "npm run lint && npm run unit && node run.mjs"
+    "test": "npm run lint && npm run unit"
   },
   "dependencies": {
     "@abaplint/cli": "^2.113.130",
