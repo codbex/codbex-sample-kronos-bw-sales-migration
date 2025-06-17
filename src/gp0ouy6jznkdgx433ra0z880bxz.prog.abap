@@ -476,7 +476,6 @@ CLASS lcl_transform IMPLEMENTATION.
 * definition for conversion exit
     l_chavl_in_c  TYPE rschavl,                             "#EC *
     l_chavl_out_c TYPE rschavl,                             "#EC *
-    ls_cob_pro    TYPE rsd_s_cob_pro,                       "#EC *
     l_subrc_con   TYPE sy-subrc.                            "#EC *
     DATA:
      l_requid   TYPE cl_rsbk_request=>t_requid,
