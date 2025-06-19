@@ -19,6 +19,11 @@ log "Executing Mac build script..."
 script_path=$(realpath "$0")
 log "Script path: $script_path"
 
+# copy ORAS artifacts
+rm -rf oras-artifacts
+mkdir -p oras-artifacts
+cp -r /target/dirigible/repository/root/registry/public/oras-artifacts/. ./oras-artifacts/
+
 rm -rf node_modules
 
 npm ci

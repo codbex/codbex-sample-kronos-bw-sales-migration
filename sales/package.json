@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Sample BW migration - Kronos",
   "scripts": {
-    "pull": "rm -rf abap-bw && oras-pull ghcr.io/codbex/codbex-bw-migration/codbex-abap-bw:latest",
+    "pull": "rm -rf abap-bw && oras-pull ghcr.io/codbex/codbex-bw-migration/codbex-abap-bw:latest -o oras-artifacts",
     "transpile": "rm -rf dist && mkdir dist && abap_transpile abap_transpile.json",
     "lint": "abaplint --config abaplint.json",
     "unit": "npm run transpile && echo RUNNING && node dist/index.mjs && echo OK",
