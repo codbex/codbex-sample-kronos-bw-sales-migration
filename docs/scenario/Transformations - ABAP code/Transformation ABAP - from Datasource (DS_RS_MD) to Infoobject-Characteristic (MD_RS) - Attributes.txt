@@ -1,0 +1,977 @@
+***********************************************************************
+*      Master Template Transformation
+***********************************************************************
+*      This is a generated program. Do not change it manually!
+***********************************************************************
+* Program class      RSTRAN_MASTER_TMPL
+* Object reference   0OUY6JZNKDGX433O5LBG6XHPV
+***********************************************************************
+* Template           RSTRAN_MASTER_TMPL
+*  - last changed by SAP
+*  - last changed at 26.05.2022 15:36:20
+* Generation
+*  - User name       C0000118
+*  - Time stamp      30.05.2025 09:03:58 UTC (30.05.2025 11:03:58 CET)
+*  - Release         750
+***********************************************************************
+*&---------------------------------------------------------------------*
+*&  Include           RSTRAN_MASTER_TMPL
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&  Template  RSTRAN_MASTER_TMPL  for transformation runtime           *
+*&---------------------------------------------------------------------*
+
+
+
+************************************************************************
+*
+*   Generated Runtime for Transformations
+*
+*   Template......: RSTRAN_MASTER_TMPL
+*   TranID........: 0NQUXNYCLPYNOUZ4RVG5TD81ZRP1LE0H   Version: 0
+*   Source........: RSDS DS_RS_MD                      XTK_FF
+*   Target........: IOBJ MD_RS ATTR
+*
+*   Author........: C0000118
+*   Date..........: 30.05.2025 11:03:58
+*
+*   Do not change this source !
+*
+************************************************************************
+PROGRAM RSTRAN_MASTER_TMPL.
+
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform DEFINITION
+*---------------------------------------------------------------------*
+*
+*---------------------------------------------------------------------*
+CLASS LCL_TRANSFORM DEFINITION.
+
+  PUBLIC  SECTION.
+
+    TYPE-POOLS: RSTR.
+
+    TYPES:
+      BEGIN OF _TY_S_SC_1,
+*      Field: RESELLERKEY ResellerKey.
+        RESELLERKEY      TYPE N LENGTH 4,
+*      Field: NATURALKEY NaturalKey.
+        NATURALKEY       TYPE C LENGTH 10,
+*      Field: PHONE Phone.
+        PHONE            TYPE C LENGTH 19,
+*      Field: RESELLERTYPE ResellerType.
+        RESELLERTYPE     TYPE C LENGTH 20,
+*      Field: NUMOFEMPLOYEES NumOfEmployees.
+        NUMOFEMPLOYEES   TYPE I,
+*      Field: ORDERFREQUENCY OrderFrequency.
+        ORDERFREQUENCY   TYPE C LENGTH 1,
+*      Field: FIRSTORDERYEAR FirstOrderYear.
+        FIRSTORDERYEAR   TYPE N LENGTH 4,
+*      Field: LASTORDERYEAR LastOrderYear.
+        LASTORDERYEAR    TYPE N LENGTH 4,
+*      Field: PRODUCTLINE ProductLine.
+        PRODUCTLINE      TYPE C LENGTH 10,
+*      Field: RESELLERADDRESS ResellerAddress.
+        RESELLERADDRESS  TYPE C LENGTH 40,
+*      Field: ANNUALSALES AnnualSales.
+        ANNUALSALES      TYPE I,
+*      Field: BANKNAME BankName.
+        BANKNAME         TYPE C LENGTH 30,
+*      Field: MINIMUMPAYMENTTY MinimumPaymentType*.
+        MINIMUMPAYMENTTY TYPE N LENGTH 2,
+*      Field: MINIMUMPAYMENTAM MinimumPaymentAmount.
+        MINIMUMPAYMENTAM TYPE I,
+*      Field: ANNUALREVENUE AnnualRevenue.
+        ANNUALREVENUE    TYPE I,
+*      Field: YEAROPEN YearOpen.
+        YEAROPEN         TYPE N LENGTH 4,
+*      Field: RECORD Data record number.
+        RECORD           TYPE RSARECORD,
+      END   OF _TY_S_SC_1.
+    TYPES:
+      _TY_T_SC_1        TYPE STANDARD TABLE OF _TY_S_SC_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    TYPES:
+      BEGIN OF _TY_S_TG_1,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS    TYPE /BIC/OIMD_RS,
+*      InfoObject: MD_RS_NK Reseller Natural Key.
+        /BIC/MD_RS_NK TYPE /BIC/OIMD_RS_NK,
+*      InfoObject: MD_PH Phone Number.
+        /BIC/MD_PH    TYPE /BIC/OIMD_PH,
+*      InfoObject: MD_RS_TP Reseller Type.
+        /BIC/MD_RS_TP TYPE /BIC/OIMD_RS_TP,
+*      InfoObject: MD_RS_EN Reseller Number of Employees.
+        /BIC/MD_RS_EN TYPE /BIC/OIMD_RS_EN,
+*      InfoObject: MD_RS_OF Reseller Order Frequency.
+        /BIC/MD_RS_OF TYPE /BIC/OIMD_RS_OF,
+*      InfoObject: MD_RS_FY Reseller First Order Year.
+        /BIC/MD_RS_FY TYPE /BIC/OIMD_RS_FY,
+*      InfoObject: MD_RS_LY Reseller Last Order Year.
+        /BIC/MD_RS_LY TYPE /BIC/OIMD_RS_LY,
+*      InfoObject: MD_RS_PL Reseller Product Line.
+        /BIC/MD_RS_PL TYPE /BIC/OIMD_RS_PL,
+*      InfoObject: MD_AD Address.
+        /BIC/MD_AD    TYPE /BIC/OIMD_AD,
+*      InfoObject: MD_RS_AS Reseller Annual Sales.
+        /BIC/MD_RS_AS TYPE /BIC/OIMD_RS_AS,
+*      InfoObject: MD_RS_BN Reseller Bank Name.
+        /BIC/MD_RS_BN TYPE /BIC/OIMD_RS_BN,
+*      InfoObject: MD_RS_PT Reseller Min. Payment Type.
+        /BIC/MD_RS_PT TYPE /BIC/OIMD_RS_PT,
+*      InfoObject: MD_RS_PA Reseller Min. Payment Amount.
+        /BIC/MD_RS_PA TYPE /BIC/OIMD_RS_PA,
+*      InfoObject: MD_RS_AR Reseller Annual Revenue.
+        /BIC/MD_RS_AR TYPE /BIC/OIMD_RS_AR,
+*      InfoObject: MD_RS_YO Reseller Year Open.
+        /BIC/MD_RS_YO TYPE /BIC/OIMD_RS_YO,
+*      InfoObject: 0RECORD Data record number.
+        RECORD        TYPE RSARECORD,
+      END   OF _TY_S_TG_1.
+    TYPES:
+      _TY_T_TG_1        TYPE STANDARD TABLE OF _TY_S_TG_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    TYPES:
+      BEGIN OF _R_2,
+        _1_1 TYPE /BIC/OIMD_RS_NK,
+
+      END OF _R_2.
+    TYPES:
+      BEGIN OF _R_3,
+        _1_1 TYPE /BIC/OIMD_PH,
+
+      END OF _R_3.
+    TYPES:
+      BEGIN OF _R_4,
+        _1_1 TYPE /BIC/OIMD_RS_TP,
+
+      END OF _R_4.
+    TYPES:
+      BEGIN OF _R_6,
+        _1_1 TYPE /BIC/OIMD_RS_OF,
+
+      END OF _R_6.
+    TYPES:
+      BEGIN OF _R_9,
+        _1_1 TYPE /BIC/OIMD_RS_PL,
+
+      END OF _R_9.
+    TYPES:
+      BEGIN OF _R_10,
+        _1_1 TYPE /BIC/OIMD_AD,
+
+      END OF _R_10.
+    TYPES:
+      BEGIN OF _R_12,
+        _1_1 TYPE /BIC/OIMD_RS_BN,
+
+      END OF _R_12.
+    DATA:
+      P_CHECK_MASTER_DATA_EXIST TYPE RSODSOCHECKONLY READ-ONLY,
+      P_R_REQUEST               TYPE REF TO IF_RSBK_REQUEST_ADMINTAB_VIEW READ-ONLY.
+
+    METHODS:
+      EXECUTE
+        IMPORTING
+          I_MASTER_DATA_EXIST TYPE RSODSOCHECKONLY
+          I_R_INBOUND         TYPE REF TO CL_RSBK_DATA
+          I_R_LOG             TYPE REF TO CL_RSBM_LOG_CURSOR_STEP
+          I_R_REQUEST         TYPE REF TO IF_RSBK_REQUEST_ADMINTAB_VIEW OPTIONAL
+          I_R_TRFN_CMD        TYPE REF TO CL_RSBK_CMD_T OPTIONAL
+        EXPORTING
+          E_R_OUTBOUND        TYPE REF TO CL_RSBK_DATA
+        RAISING
+          CX_RS_STEP_FAILED.
+
+
+  PRIVATE SECTION.
+
+    TYPE-POOLS: RSD, RRSV, RSTR.
+
+*   Flag structure for dynamic rule suppression
+    TYPES:
+      BEGIN OF _R_S_SUPP,
+        _1  TYPE RS_BOOL,
+        _2  TYPE RS_BOOL,
+        _3  TYPE RS_BOOL,
+        _4  TYPE RS_BOOL,
+        _5  TYPE RS_BOOL,
+        _6  TYPE RS_BOOL,
+        _7  TYPE RS_BOOL,
+        _8  TYPE RS_BOOL,
+        _9  TYPE RS_BOOL,
+        _10 TYPE RS_BOOL,
+        _11 TYPE RS_BOOL,
+        _12 TYPE RS_BOOL,
+        _13 TYPE RS_BOOL,
+        _14 TYPE RS_BOOL,
+        _15 TYPE RS_BOOL,
+        _16 TYPE RS_BOOL,
+      END   OF _R_S_SUPP.
+
+    METHODS:
+      GET_FIELDS_POPULATED0001
+        EXPORTING
+          E_T_FIELDNM TYPE RSAR_T_FIELDNAMES.
+
+
+    TYPES:
+      BEGIN OF _TY_G_1,
+*      InfoObject: MD_RS_NK Reseller Natural Key.
+        /BIC/MD_RS_NK TYPE /BIC/OIMD_RS_NK,
+*      InfoObject: MD_PH Phone Number.
+        /BIC/MD_PH    TYPE /BIC/OIMD_PH,
+*      InfoObject: MD_RS_TP Reseller Type.
+        /BIC/MD_RS_TP TYPE /BIC/OIMD_RS_TP,
+*      InfoObject: MD_RS_EN Reseller Number of Employees.
+        /BIC/MD_RS_EN TYPE /BIC/OIMD_RS_EN,
+*      InfoObject: MD_RS_OF Reseller Order Frequency.
+        /BIC/MD_RS_OF TYPE /BIC/OIMD_RS_OF,
+*      InfoObject: MD_RS_FY Reseller First Order Year.
+        /BIC/MD_RS_FY TYPE /BIC/OIMD_RS_FY,
+*      InfoObject: MD_RS_LY Reseller Last Order Year.
+        /BIC/MD_RS_LY TYPE /BIC/OIMD_RS_LY,
+*      InfoObject: MD_RS_PL Reseller Product Line.
+        /BIC/MD_RS_PL TYPE /BIC/OIMD_RS_PL,
+*      InfoObject: MD_AD Address.
+        /BIC/MD_AD    TYPE /BIC/OIMD_AD,
+*      InfoObject: MD_RS_AS Reseller Annual Sales.
+        /BIC/MD_RS_AS TYPE /BIC/OIMD_RS_AS,
+*      InfoObject: MD_RS_BN Reseller Bank Name.
+        /BIC/MD_RS_BN TYPE /BIC/OIMD_RS_BN,
+*      InfoObject: MD_RS_PT Reseller Min. Payment Type.
+        /BIC/MD_RS_PT TYPE /BIC/OIMD_RS_PT,
+*      InfoObject: MD_RS_PA Reseller Min. Payment Amount.
+        /BIC/MD_RS_PA TYPE /BIC/OIMD_RS_PA,
+*      InfoObject: MD_RS_AR Reseller Annual Revenue.
+        /BIC/MD_RS_AR TYPE /BIC/OIMD_RS_AR,
+*      InfoObject: MD_RS_YO Reseller Year Open.
+        /BIC/MD_RS_YO TYPE /BIC/OIMD_RS_YO,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS    TYPE /BIC/OIMD_RS,
+      END   OF _TY_G_1.
+
+ENDCLASS.                    "endclass
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform IMPLEMENTATION
+*---------------------------------------------------------------------*
+*---------------------------------------------------------------------*
+CLASS LCL_TRANSFORM IMPLEMENTATION.
+
+  METHOD EXECUTE.
+*=== Segments ===
+    FIELD-SYMBOLS:
+      <_YT_SC_1>    TYPE TABLE,
+      <_YT_SC_1_TY> TYPE _TY_T_SC_1,
+      <_YS_SC_1>    TYPE _TY_S_SC_1.
+    FIELD-SYMBOLS:
+      <_YT_TG_1> TYPE _TY_T_TG_1,
+      <_YS_TG_1> TYPE _TY_S_TG_1.
+
+    FIELD-SYMBOLS: <_YS_RIMAGE> TYPE _TY_S_TG_1.
+
+    DATA:
+      LR_CX_ABORT               TYPE REF TO CX_RSROUT_ABORT,
+      LR_CX_SY_CONVERSION_ERROR TYPE REF TO CX_SY_CONVERSION_ERROR,
+      LR_CX_SY_ARITHMETIC_ERROR TYPE REF TO CX_SY_ARITHMETIC_ERROR,
+      LR_CX_ROOT                TYPE REF TO CX_ROOT.
+    DATA: LR_CX_RSBK_ERRORCOUNT TYPE REF TO CX_RSBK_ERRORCOUNT.
+    DATA: L_RX_RSFO_ERROR_IN_FUNCTION TYPE REF TO CX_RSFO_ERROR_IN_FUNCTION,
+          L_S_BALMSG                  TYPE BAL_S_MSG.
+    DATA:
+      LR_MSG_COLL   TYPE REF TO CL_RSO_MSG,
+      _SKIP         TYPE RS_BOOL,
+      _SKIP_SEG_ALL TYPE RS_BOOL,
+      _LS_MSG       TYPE RSMONITOR,
+      _LS_MSG_S     TYPE RSTMONITOR,
+      _LS_MSG_REC   TYPE RSTR_TY_S_MONITOR_REC,
+      _LT_MSG       TYPE RSTR_TY_T_MONITOR,
+      _LT_MSG_S     TYPE RSTR_TY_T_MONITORS,
+      _LT_MSG_REC   TYPE RSTR_TY_T_MONITOR_REC,
+      _CURR_RULE    TYPE CL_RSTRAN_RUNTIME_EXE=>TY_S_RULE_CONTEXT,
+      _LS_SUPP      TYPE _R_S_SUPP.
+    DATA:
+       L_FIELDNAME               TYPE STRING.
+
+    FIELD-SYMBOLS:
+      <L_RECORD_NO>  TYPE ANY,
+      <L_RECORD_ALL> TYPE ANY.
+
+    DATA: L_SEGID                TYPE RSBK_SEGID.
+
+    DATA: L_DUMMY                TYPE C.
+
+    DATA:
+      _R_SC_1   TYPE REF TO CL_RSBK_DATA_SEGMENT,
+      _RDT_SC_1 TYPE REF TO DATA.
+    DATA:
+      _R_TG_1      TYPE REF TO CL_RSBK_DATA_SEGMENT,
+      _RDS_TG_1    TYPE REF TO DATA,
+      _RDT_TG_1    TYPE REF TO DATA,
+      _RDT_TG_1_DP TYPE REF TO DATA.
+*=== Step_type specific ===
+    DATA:
+     L_RECNO_SC_1 TYPE SY-TABIX.
+
+    DATA:
+     L_RECNO_TG_1 TYPE SY-TABIX.
+*=== Group ===
+    DATA:
+      _G_1         TYPE _TY_G_1,
+      _G_1_SUBRC   TYPE SYSUBRC,
+      _G_1_TABIX   TYPE SYTABIX,
+      _G_1_SUBRC_2 TYPE SYSUBRC,
+      _G_1_TABIX_2 TYPE SYTABIX,
+      _G_1_SUBRC_3 TYPE SYSUBRC,
+      _G_1_TABIX_3 TYPE SYTABIX.
+
+
+*=== Step_type specific ===
+    DATA:
+* definition for conversion exit
+      L_CHAVL_IN_C  TYPE RSCHAVL,                           "#EC *
+      L_CHAVL_OUT_C TYPE RSCHAVL,                           "#EC *
+      LS_COB_PRO    TYPE RSD_S_COB_PRO,                     "#EC *
+      L_SUBRC_CON   TYPE SY-SUBRC.                          "#EC *
+    DATA:
+      L_REQUID  TYPE CL_RSBK_REQUEST=>T_REQUID,
+      L_REQUEST TYPE RSREQUEST.
+    DATA:
+     LS_CROSS         TYPE RSBM_S_CROSSTAB.
+
+
+
+
+    DATA:
+      _R_2 TYPE _R_2.
+    DATA:
+      _R_3 TYPE _R_3.
+    DATA:
+      _R_4 TYPE _R_4.
+    DATA:
+      _R_6 TYPE _R_6.
+    DATA:
+      _R_9 TYPE _R_9.
+    DATA:
+      _R_10 TYPE _R_10.
+    DATA:
+      _R_12 TYPE _R_12.
+
+* ==== 0. initialization
+    CREATE OBJECT LR_MSG_COLL.
+* ==== 1. unpack segments
+    _R_SC_1              = I_R_INBOUND->GET_SEGMENT( 0001 ).
+    _RDT_SC_1            = _R_SC_1->GET_DATA( I_WITH_RECNO = RS_C_TRUE ).
+    ASSIGN _RDT_SC_1->*            TO <_YT_SC_1>.
+    L_FIELDNAME = 'RECORD_ALL'.
+    ASSIGN (L_FIELDNAME) TO <L_RECORD_ALL>.
+    IF SY-SUBRC = 0.
+      DESCRIBE TABLE <_YT_SC_1> LINES <L_RECORD_ALL>.
+    ENDIF.
+
+
+    DATA: L_T_FIELDNM TYPE RSAR_T_FIELDNAMES.
+
+    _R_TG_1              = E_R_OUTBOUND->GET_SEGMENT( 0001 ).
+    _RDT_TG_1_DP         = _R_TG_1->GET_EMPTY_TABLE( ).
+
+*   get transformation target list and set in segment
+    CALL METHOD GET_FIELDS_POPULATED0001
+      IMPORTING
+        E_T_FIELDNM = L_T_FIELDNM.
+    _R_TG_1->SET_T_FIELDS_POPULATED( L_T_FIELDNM ).
+
+    _RDS_TG_1            = _R_TG_1->GET_WORKAREA( ).
+    ASSIGN _RDS_TG_1->*            TO <_YS_TG_1>.
+    CREATE DATA _RDT_TG_1 TYPE _TY_T_TG_1.
+    ASSIGN _RDT_TG_1->*            TO <_YT_TG_1>.
+
+    _CURR_RULE-TRANID  = '0NQUXNYCLPYNOUZ4RVG5TD81ZRP1LE0H'.
+    _CURR_RULE-PROGID  = '0OUY6JZNKDGX433O5LBG6XHPV'.
+    _CURR_RULE-VERSION = '0'.
+
+    CALL METHOD CL_RSTRAN_RUNTIME_EXE=>GET_SUPPRESSED_RULES
+      EXPORTING
+        I_TRANID             = _CURR_RULE-TRANID
+        I_R_DATA             = E_R_OUTBOUND
+        I_R_DATA_IN          = I_R_INBOUND
+      IMPORTING
+        E_S_SUPPRESSED_RULES = _LS_SUPP.
+
+*   set attributs
+    P_CHECK_MASTER_DATA_EXIST = I_MASTER_DATA_EXIST.
+    P_R_REQUEST               = I_R_REQUEST.
+    L_SEGID                   = '0001'.
+
+    L_REQUID = I_R_INBOUND->N_REQUID.
+    IF L_REQUID IS NOT INITIAL.
+      TRY.
+          L_REQUEST = CL_RSBK_REQUEST=>CREATE_FROM_DB(
+             I_REQUID = L_REQUID )->GET_REQUID30( ).
+        CATCH CX_ROOT INTO DATA(L_R_X).
+          MESSAGE X299(RSBK).
+      ENDTRY.
+    ENDIF.
+
+
+* ==== Debugging ====
+* Breakpoint after start routine
+    IF I_R_TRFN_CMD IS BOUND.
+      READ TABLE I_R_TRFN_CMD->N_TH_BP
+           TRANSPORTING NO FIELDS
+           WITH TABLE KEY BPID    = 3
+                          DATAPID = I_R_INBOUND->N_DATAPAKID.
+      IF SY-SUBRC = 0.
+
+* --- Data ---
+*     See datapackage below
+
+* --- Debugging ---
+        BREAK-POINT.                                       "#EC NOBREAK
+
+      ENDIF.
+    ENDIF.
+
+
+
+* ==== 2. process data package
+    I_R_LOG->ADD_SUBSTEP( 'RULES' ).
+    LOOP AT <_YT_SC_1> ASSIGNING <_YS_SC_1>.
+
+      CLEAR:
+        _G_1,
+        _LT_MSG_REC,
+        _LT_MSG.
+      _CURR_RULE-RECORD = L_RECNO_SC_1 = <_YS_SC_1>-RECORD.
+      IF NOT <L_RECORD_NO> IS ASSIGNED.
+        IF <_YS_SC_1>-RECORD = 1.
+          L_FIELDNAME = 'RECORD_NO'.
+          ASSIGN (L_FIELDNAME) TO <L_RECORD_NO>.
+          IF SY-SUBRC = 0.
+            <L_RECORD_NO> = <_YS_SC_1>-RECORD.
+          ENDIF.
+        ENDIF.
+      ELSE.
+        <L_RECORD_NO> = <_YS_SC_1>-RECORD.
+      ENDIF.
+      TRY.
+
+* ======  RULES
+*<<<    Rule ID: '1'.
+          IF _LS_SUPP-_1 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '1'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS = <_YS_SC_1>-RESELLERKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '2'.
+          IF _LS_SUPP-_2 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '2'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_2-_1_1 = <_YS_SC_1>-NATURALKEY.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_2-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_RS_NK.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '3'.
+          IF _LS_SUPP-_3 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '3'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_3-_1_1 = <_YS_SC_1>-PHONE.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_3-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_PH.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '4'.
+          IF _LS_SUPP-_4 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '4'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_4-_1_1 = <_YS_SC_1>-RESELLERTYPE.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_4-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_RS_TP.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '5'.
+          IF _LS_SUPP-_5 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '5'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_EN = <_YS_SC_1>-NUMOFEMPLOYEES.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '6'.
+          IF _LS_SUPP-_6 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '6'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_6-_1_1 = <_YS_SC_1>-ORDERFREQUENCY.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_6-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_RS_OF.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '7'.
+          IF _LS_SUPP-_7 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '7'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_FY = <_YS_SC_1>-FIRSTORDERYEAR.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '8'.
+          IF _LS_SUPP-_8 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '8'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_LY = <_YS_SC_1>-LASTORDERYEAR.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '9'.
+          IF _LS_SUPP-_9 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '9'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_9-_1_1 = <_YS_SC_1>-PRODUCTLINE.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_9-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_RS_PL.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '10'.
+          IF _LS_SUPP-_10 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '10'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_10-_1_1 = <_YS_SC_1>-RESELLERADDRESS.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_10-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_AD.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '11'.
+          IF _LS_SUPP-_11 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '11'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_AS = <_YS_SC_1>-ANNUALSALES.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '12'.
+          IF _LS_SUPP-_12 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '12'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _R_12-_1_1 = <_YS_SC_1>-BANKNAME.
+*       Step ID: '2', Type: 'CONVERT'.
+            _CURR_RULE-STEPID = '2'.
+            CALL 'CONVERSION_EXIT_ALPHA_INPUT'
+                  ID 'INPUT'  FIELD _R_12-_1_1
+                  ID 'OUTPUT' FIELD _G_1-/BIC/MD_RS_BN.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '13'.
+          IF _LS_SUPP-_13 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '13'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_PT = <_YS_SC_1>-MINIMUMPAYMENTTY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '14'.
+          IF _LS_SUPP-_14 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '14'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_PA = <_YS_SC_1>-MINIMUMPAYMENTAM.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '15'.
+          IF _LS_SUPP-_15 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '15'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_AR = <_YS_SC_1>-ANNUALREVENUE.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '16'.
+          IF _LS_SUPP-_16 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '16'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS_YO = <_YS_SC_1>-YEAROPEN.
+          ENDIF.  "suppressed RULE
+*>>>
+
+          IF _LT_MSG_REC IS NOT INITIAL.
+            CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+              EXPORTING
+                I_R_LOG        = I_R_LOG
+                I_RULE_CONTEXT = _CURR_RULE
+                I_SEG_ID       = `1`
+                I_S_DATA       = <_YS_SC_1>
+              CHANGING
+                C_T_MSG        = _LT_MSG_REC.
+          ENDIF.
+
+        CATCH CX_RSROUT_SKIP_RECORD INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          IF _LT_MSG[] IS NOT INITIAL.
+            _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+            _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+            _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+            LOOP AT _LT_MSG INTO _LS_MSG.
+              MOVE-CORRESPONDING _LS_MSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            ENDLOOP.
+          ENDIF.
+          IF _LT_MSG_REC IS NOT INITIAL.
+            CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+              EXPORTING
+                I_R_LOG        = I_R_LOG
+                I_CX_ROOT      = LR_CX_ROOT
+                I_RULE_CONTEXT = _CURR_RULE
+                I_SEG_ID       = `1`
+                I_S_DATA       = <_YS_SC_1>
+              CHANGING
+                C_T_MSG        = _LT_MSG_REC.
+          ENDIF.
+
+        CATCH CX_RSFO_SKIP_RECORD INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+
+        CATCH CX_RSFO_SKIP_RECORD_AS_ERROR INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_CX_ROOT      = LR_CX_ROOT
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_RSBK_ERRORCOUNT INTO LR_CX_RSBK_ERRORCOUNT.
+*         errorcount can't be determined
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL FUNCTION 'RS_EXCEPTION_TO_SYMSG'
+            EXPORTING
+              I_R_EXCEPTION = LR_CX_RSBK_ERRORCOUNT
+*             I_DEEPEST     =
+            .
+          MOVE-CORRESPONDING SYST TO _LS_MSG_REC-_S.
+          _LS_MSG_REC-_S-SKIPPED = RS_C_TRUE.
+          APPEND _LS_MSG_REC TO _LT_MSG_REC.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_FOEV_ERROR_IN_FUNCTION INTO LR_CX_ROOT.    "HW 980549
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CLEAR _LS_MSG_REC.
+          _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+          _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+          _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+
+          TRY.
+              L_RX_RSFO_ERROR_IN_FUNCTION ?= LR_CX_ROOT.
+              CALL METHOD L_RX_RSFO_ERROR_IN_FUNCTION->GET_MESSAGE
+                IMPORTING
+                  E_S_MSG = L_S_BALMSG.
+              MOVE-CORRESPONDING L_S_BALMSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            CATCH  CX_SY_MOVE_CAST_ERROR.
+          ENDTRY.
+
+          MESSAGE E535(RSAR)
+            WITH _CURR_RULE-RULEID _CURR_RULE-RECORD
+            INTO _LS_MSG_REC-_S-MSGTY.
+          MOVE-CORRESPONDING SYST TO _LS_MSG_REC-_S.
+          _LS_MSG_REC-_S-SKIPPED = RS_C_TRUE.
+          APPEND _LS_MSG_REC TO _LT_MSG_REC.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_SY_ARITHMETIC_ERROR INTO LR_CX_SY_ARITHMETIC_ERROR.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG                  = I_R_LOG
+              I_CX_SY_ARITHMETIC_ERROR = LR_CX_SY_ARITHMETIC_ERROR
+              I_RULE_CONTEXT           = _CURR_RULE
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_YS_SC_1>.
+
+        CATCH CX_SY_CONVERSION_ERROR  INTO LR_CX_SY_CONVERSION_ERROR.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG                  = I_R_LOG
+              I_CX_SY_CONVERSION_ERROR = LR_CX_SY_CONVERSION_ERROR
+              I_RULE_CONTEXT           = _CURR_RULE
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_YS_SC_1>.
+
+        CATCH CX_ROOT INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+*--       all other cases handled by message proxy
+          IF _LT_MSG[] IS NOT INITIAL.
+            _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+            _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+            _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+            LOOP AT _LT_MSG INTO _LS_MSG.
+              MOVE-CORRESPONDING _LS_MSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            ENDLOOP.
+          ENDIF.
+
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_CX_ROOT      = LR_CX_ROOT
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+      ENDTRY.       "RECORD
+
+* =====  PUT groups to target
+      IF _SKIP_SEG_ALL IS INITIAL.
+
+        ASSIGN _RDS_TG_1->*          TO <_YS_TG_1>.
+        CLEAR <_YS_TG_1>.
+        MOVE-CORRESPONDING _G_1 TO <_YS_TG_1>.
+        L_RECNO_TG_1          = L_RECNO_TG_1 + 1.
+        LS_CROSS-INSEGID      = 1.
+        LS_CROSS-INRECORD     = L_RECNO_SC_1.
+        LS_CROSS-OUTSEGID     = 1.
+        LS_CROSS-OUTRECORD    = L_RECNO_TG_1.
+
+        CALL METHOD I_R_LOG->ADD_CROSS_TAB
+          EXPORTING
+            I_S_CROSSTAB = LS_CROSS.
+
+**     Record# in target = sy-tabix - if sorting of table won't be changed
+        <_YS_TG_1>-RECORD     = L_RECNO_TG_1.
+
+        APPEND <_YS_TG_1> TO <_YT_TG_1>.
+
+*
+      ENDIF.
+      CLEAR _SKIP_SEG_ALL.
+    ENDLOOP.
+* -------- insert table into outbound segment ----
+
+
+* ==== Debugging ====
+* Breakpoint before end routine
+    IF I_R_TRFN_CMD IS BOUND.
+      READ TABLE I_R_TRFN_CMD->N_TH_BP
+           TRANSPORTING NO FIELDS
+           WITH TABLE KEY BPID    = 4
+                          DATAPID = I_R_INBOUND->N_DATAPAKID.
+      IF SY-SUBRC = 0.
+
+* --- Data ---
+*     See datapackage above..
+
+* --- Debugging ---
+        BREAK-POINT.                                       "#EC NOBREAK
+
+      ENDIF.
+    ENDIF.
+
+
+
+    IF L_REQUID NE 0.
+
+      DATA: L_R_REQUEST_0001     TYPE REF TO CL_RSBK_REQUEST,
+            L_ERRORHANDLING_0001 TYPE RSBKERRORHANDLING,
+            L_SKIP_0001          TYPE RS_BOOL.
+*-- get the request
+      TRY.
+          CALL METHOD CL_RSBK_REQUEST=>CREATE_FROM_DB
+            EXPORTING
+              I_REQUID    = L_REQUID
+            RECEIVING
+              R_R_REQUEST = L_R_REQUEST_0001.
+        CATCH CX_RS_NOT_FOUND .
+      ENDTRY.
+*-- get the error handling setting from the request
+      TRY.
+          CALL METHOD L_R_REQUEST_0001->GET_ERRORHANDLING
+            RECEIVING
+              R_ERRORHANDLING = L_ERRORHANDLING_0001.
+        CATCH CX_RS_ACCESS_ERROR .
+      ENDTRY.
+*-- only in case of error handling on
+      IF L_ERRORHANDLING_0001 NE RSBC_C_ERRORHANDLING-OFF.
+        LOOP AT <_YT_TG_1> ASSIGNING <_YS_TG_1>.
+          CALL METHOD I_R_LOG->VERIFY_RECORD
+            EXPORTING
+              I_SEGID         = 0001
+              I_RECORD        = <_YS_TG_1>-RECORD
+              I_USE_CROSSTAB  = RS_C_TRUE               " As it is the Target format
+            RECEIVING
+              R_SKIP          = L_SKIP_0001
+            EXCEPTIONS
+              TOO_MANY_ERRORS = 1
+              NOT_IN_CROSSTAB = 2
+              OTHERS          = 3.
+          IF SY-SUBRC <> 0.
+*-- too many errors/ not in crosstab abort
+            CALL FUNCTION 'RS_SYMESSAGE_TO_EXCEPTION'
+              EXPORTING
+                I_EXCEPTION   = 'CX_RS_MSG'
+              IMPORTING
+                E_R_EXCEPTION = LR_CX_ROOT.
+            CALL METHOD CL_RSBM_LOG_STEP=>RAISE_STEP_FAILED_CALLSTACK
+              EXPORTING
+                I_PREVIOUS = LR_CX_ROOT.
+          ELSEIF NOT L_SKIP_0001 IS INITIAL.
+            DELETE <_YT_TG_1>.
+          ENDIF.
+        ENDLOOP.
+      ENDIF.
+    ENDIF.
+
+    _R_TG_1->INSERT_TABLE( _RDT_TG_1 ).
+  ENDMETHOD.                 "execute
+
+  METHOD GET_FIELDS_POPULATED0001.
+
+    APPEND '/BIC/MD_RS' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_NK' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_PH' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_TP' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_EN' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_OF' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_FY' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_LY' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_PL' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_AD' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_AS' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_BN' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_PT' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_PA' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_AR' TO E_T_FIELDNM.
+    APPEND '/BIC/MD_RS_YO' TO E_T_FIELDNM.
+
+  ENDMETHOD.
+
+
+
+ENDCLASS.                    "lcl_transform IMPLEMENTATION
+
+*&--------------------------------------------------------------------*
+*&      Form  get_runtime_ref
+*&--------------------------------------------------------------------*
+*       text
+*---------------------------------------------------------------------*
+*      -->C_R_EXE    text
+*---------------------------------------------------------------------*
+FORM GET_RUNTIME_REF
+  CHANGING C_R_EXE  TYPE REF TO OBJECT.
+
+*-- singelton instance
+  STATICS S_R_EXE TYPE REF TO LCL_TRANSFORM.
+
+  IF S_R_EXE IS NOT BOUND.
+    CREATE OBJECT S_R_EXE.
+  ENDIF.
+  C_R_EXE = S_R_EXE.
+
+ENDFORM.                    "get_runtime_ref
+
+*.. The following subroutine is for internal (FuGr RSSG) use only! ..*
+
+
+FORM _RSSG_PROGRAM_LOADCHECK
+     CHANGING E_S_PDIR TYPE RSSGTPDIR
+              E_FOUND  TYPE FLAG. "#EC CALLED
+CONSTANTS:
+BEGIN OF _RSSG_C_PCLA,
+  PROGCLASS TYPE  RSSGTPCLA-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  CLIDEP TYPE  RSSGTPCLA-CLIDEP
+    VALUE ' ',
+  GENFLAG TYPE  RSSGTPCLA-GENFLAG
+    VALUE 'X',
+  SUBC TYPE  RSSGTPCLA-SUBC
+    VALUE '1',
+  TEMPLATE TYPE  RSSGTPCLA-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+END   OF _RSSG_C_PCLA,
+
+BEGIN OF _RSSG_C_PDIR,
+  UNI_IDC25 TYPE  RSSGTPDIR-UNI_IDC25
+    VALUE '0OUY6JZNKDGX433O5LBG6XHPV',
+  CLIENT TYPE  RSSGTPDIR-CLIENT
+    VALUE ' ',
+  PROGCLASS TYPE  RSSGTPDIR-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  PROGNAME TYPE  RSSGTPDIR-PROGNAME
+    VALUE 'GP0OUY6JZNKDGX433O5LBG6XHPV',
+  CREUSER TYPE  RSSGTPDIR-CREUSER
+    VALUE 'C0000118',
+  CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
+    VALUE 20250530090358,
+  GENUSER TYPE  RSSGTPDIR-GENUSER
+    VALUE 'C0000118',
+  GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
+    VALUE 20250530090358,
+  GENRELEASE TYPE  RSSGTPDIR-GENRELEASE
+    VALUE '750',
+  GENSTATUS TYPE  RSSGTPDIR-GENSTATUS
+    VALUE '00',
+  TEMPLATE TYPE  RSSGTPDIR-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+  UPDUSERTPL TYPE  RSSGTPDIR-UPDUSERTPL
+    VALUE 'SAP',
+  UPDDATETPL TYPE  RSSGTPDIR-UPDDATETPL
+    VALUE '20220526',
+  UPDTIMETPL TYPE  RSSGTPDIR-UPDTIMETPL
+    VALUE '153620',
+  SUBC TYPE  RSSGTPDIR-SUBC
+    VALUE '1',
+  WITH_SUBTEMPL TYPE  RSSGTPDIR-WITH_SUBTEMPL
+    VALUE 'X',
+END   OF _RSSG_C_PDIR.
+
+  MOVE-CORRESPONDING _RSSG_C_PDIR TO E_S_PDIR.
+  E_FOUND = 'X'.
+ENDFORM.
