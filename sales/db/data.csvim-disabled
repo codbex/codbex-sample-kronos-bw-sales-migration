@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "table": "TD_IS",
+      "schema": "PUBLIC",
+      "file": "/sales/db/DSO - TD_IS - content.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "2.0",
+      "upsert": false
+    },
+    {
+      "table": "TD_RS",
+      "schema": "PUBLIC",
+      "file": "/sales/db/DSO - TD_RS - content.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "2.0",
+      "upsert": false
+    }
+  ]
+}
