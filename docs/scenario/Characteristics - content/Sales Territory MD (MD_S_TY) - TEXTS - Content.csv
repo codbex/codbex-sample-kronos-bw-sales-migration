@@ -1,0 +1,15 @@
+06.06.25 Dynamic List Display                                                  1
+
+
+	/BIC/MD_S_TY	TXTMD
+
+	         001	Northwest
+	         002	Northeast
+	         003	Central
+	         004	Southwest
+	         005	Southeast
+	         006	Canada
+	         007	France
+	         008	Germany
+	         009	Australia
+	         010	United Kingdom

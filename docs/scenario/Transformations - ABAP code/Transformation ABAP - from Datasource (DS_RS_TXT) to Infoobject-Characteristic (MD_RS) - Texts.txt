@@ -1,0 +1,663 @@
+***********************************************************************
+*      Master Template Transformation
+***********************************************************************
+*      This is a generated program. Do not change it manually!
+***********************************************************************
+* Program class      RSTRAN_MASTER_TMPL
+* Object reference   0OUY6JZNKDGX433P69IHLMYC0
+***********************************************************************
+* Template           RSTRAN_MASTER_TMPL
+*  - last changed by SAP
+*  - last changed at 26.05.2022 15:36:20
+* Generation
+*  - User name       C0000118
+*  - Time stamp      30.05.2025 09:22:27 UTC (30.05.2025 11:22:27 CET)
+*  - Release         750
+***********************************************************************
+*&---------------------------------------------------------------------*
+*&  Include           RSTRAN_MASTER_TMPL
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&  Template  RSTRAN_MASTER_TMPL  for transformation runtime           *
+*&---------------------------------------------------------------------*
+
+
+
+************************************************************************
+*
+*   Generated Runtime for Transformations
+*
+*   Template......: RSTRAN_MASTER_TMPL
+*   TranID........: 0JLSXU1RLXML9FLWQGCYX5LDAS8W25TF   Version: 0
+*   Source........: RSDS DS_RS_TXT                     XTK_FF
+*   Target........: IOBJ MD_RS TEXT
+*
+*   Author........: C0000118
+*   Date..........: 30.05.2025 11:22:27
+*
+*   Do not change this source !
+*
+************************************************************************
+PROGRAM RSTRAN_MASTER_TMPL.
+
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform DEFINITION
+*---------------------------------------------------------------------*
+*
+*---------------------------------------------------------------------*
+CLASS LCL_TRANSFORM DEFINITION.
+
+  PUBLIC  SECTION.
+
+    TYPE-POOLS: RSTR.
+
+    TYPES:
+      BEGIN OF _TY_S_SC_1,
+*      Field: RESELLERKEY ResellerKey.
+        RESELLERKEY  TYPE N LENGTH 4,
+*      Field: RESELLERNAME ResellerName.
+        RESELLERNAME TYPE C LENGTH 60,
+*      Field: RECORD Data record number.
+        RECORD       TYPE RSARECORD,
+      END   OF _TY_S_SC_1.
+    TYPES:
+      _TY_T_SC_1        TYPE STANDARD TABLE OF _TY_S_SC_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    TYPES:
+      BEGIN OF _TY_S_TG_1,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS TYPE /BIC/OIMD_RS,
+*      InfoObject: 0TXTLG Long description.
+        TXTLG      TYPE RSTXTLG,
+*      InfoObject: 0RECORD Data record number.
+        RECORD     TYPE RSARECORD,
+      END   OF _TY_S_TG_1.
+    TYPES:
+      _TY_T_TG_1        TYPE STANDARD TABLE OF _TY_S_TG_1
+                        WITH NON-UNIQUE DEFAULT KEY.
+    DATA:
+      P_CHECK_MASTER_DATA_EXIST TYPE RSODSOCHECKONLY READ-ONLY,
+      P_R_REQUEST               TYPE REF TO IF_RSBK_REQUEST_ADMINTAB_VIEW READ-ONLY.
+
+    METHODS:
+      EXECUTE
+        IMPORTING
+          I_MASTER_DATA_EXIST TYPE RSODSOCHECKONLY
+          I_R_INBOUND         TYPE REF TO CL_RSBK_DATA
+          I_R_LOG             TYPE REF TO CL_RSBM_LOG_CURSOR_STEP
+          I_R_REQUEST         TYPE REF TO IF_RSBK_REQUEST_ADMINTAB_VIEW OPTIONAL
+          I_R_TRFN_CMD        TYPE REF TO CL_RSBK_CMD_T OPTIONAL
+        EXPORTING
+          E_R_OUTBOUND        TYPE REF TO CL_RSBK_DATA
+        RAISING
+          CX_RS_STEP_FAILED.
+
+
+  PRIVATE SECTION.
+
+    TYPE-POOLS: RSD, RRSV, RSTR.
+
+*   Flag structure for dynamic rule suppression
+    TYPES:
+      BEGIN OF _R_S_SUPP,
+        _1 TYPE RS_BOOL,
+        _2 TYPE RS_BOOL,
+      END   OF _R_S_SUPP.
+
+    METHODS:
+      GET_FIELDS_POPULATED0001
+        EXPORTING
+          E_T_FIELDNM TYPE RSAR_T_FIELDNAMES.
+
+
+    TYPES:
+      BEGIN OF _TY_G_1,
+*      InfoObject: 0TXTLG Long description.
+        TXTLG      TYPE RSTXTLG,
+*      InfoObject: MD_RS Reseller MD.
+        /BIC/MD_RS TYPE /BIC/OIMD_RS,
+      END   OF _TY_G_1.
+
+ENDCLASS.                    "endclass
+
+*---------------------------------------------------------------------*
+*       CLASS lcl_transform IMPLEMENTATION
+*---------------------------------------------------------------------*
+*---------------------------------------------------------------------*
+CLASS LCL_TRANSFORM IMPLEMENTATION.
+
+  METHOD EXECUTE.
+*=== Segments ===
+    FIELD-SYMBOLS:
+      <_YT_SC_1>    TYPE TABLE,
+      <_YT_SC_1_TY> TYPE _TY_T_SC_1,
+      <_YS_SC_1>    TYPE _TY_S_SC_1.
+    FIELD-SYMBOLS:
+      <_YT_TG_1> TYPE _TY_T_TG_1,
+      <_YS_TG_1> TYPE _TY_S_TG_1.
+
+    FIELD-SYMBOLS: <_YS_RIMAGE> TYPE _TY_S_TG_1.
+
+    DATA:
+      LR_CX_ABORT               TYPE REF TO CX_RSROUT_ABORT,
+      LR_CX_SY_CONVERSION_ERROR TYPE REF TO CX_SY_CONVERSION_ERROR,
+      LR_CX_SY_ARITHMETIC_ERROR TYPE REF TO CX_SY_ARITHMETIC_ERROR,
+      LR_CX_ROOT                TYPE REF TO CX_ROOT.
+    DATA: LR_CX_RSBK_ERRORCOUNT TYPE REF TO CX_RSBK_ERRORCOUNT.
+    DATA: L_RX_RSFO_ERROR_IN_FUNCTION TYPE REF TO CX_RSFO_ERROR_IN_FUNCTION,
+          L_S_BALMSG                  TYPE BAL_S_MSG.
+    DATA:
+      LR_MSG_COLL   TYPE REF TO CL_RSO_MSG,
+      _SKIP         TYPE RS_BOOL,
+      _SKIP_SEG_ALL TYPE RS_BOOL,
+      _LS_MSG       TYPE RSMONITOR,
+      _LS_MSG_S     TYPE RSTMONITOR,
+      _LS_MSG_REC   TYPE RSTR_TY_S_MONITOR_REC,
+      _LT_MSG       TYPE RSTR_TY_T_MONITOR,
+      _LT_MSG_S     TYPE RSTR_TY_T_MONITORS,
+      _LT_MSG_REC   TYPE RSTR_TY_T_MONITOR_REC,
+      _CURR_RULE    TYPE CL_RSTRAN_RUNTIME_EXE=>TY_S_RULE_CONTEXT,
+      _LS_SUPP      TYPE _R_S_SUPP.
+    DATA:
+       L_FIELDNAME               TYPE STRING.
+
+    FIELD-SYMBOLS:
+      <L_RECORD_NO>  TYPE ANY,
+      <L_RECORD_ALL> TYPE ANY.
+
+    DATA: L_SEGID                TYPE RSBK_SEGID.
+
+    DATA: L_DUMMY                TYPE C.
+
+    DATA:
+      _R_SC_1   TYPE REF TO CL_RSBK_DATA_SEGMENT,
+      _RDT_SC_1 TYPE REF TO DATA.
+    DATA:
+      _R_TG_1      TYPE REF TO CL_RSBK_DATA_SEGMENT,
+      _RDS_TG_1    TYPE REF TO DATA,
+      _RDT_TG_1    TYPE REF TO DATA,
+      _RDT_TG_1_DP TYPE REF TO DATA.
+*=== Step_type specific ===
+    DATA:
+     L_RECNO_SC_1 TYPE SY-TABIX.
+
+    DATA:
+     L_RECNO_TG_1 TYPE SY-TABIX.
+*=== Group ===
+    DATA:
+      _G_1         TYPE _TY_G_1,
+      _G_1_SUBRC   TYPE SYSUBRC,
+      _G_1_TABIX   TYPE SYTABIX,
+      _G_1_SUBRC_2 TYPE SYSUBRC,
+      _G_1_TABIX_2 TYPE SYTABIX,
+      _G_1_SUBRC_3 TYPE SYSUBRC,
+      _G_1_TABIX_3 TYPE SYTABIX.
+
+
+*=== Step_type specific ===
+    DATA:
+      L_REQUID  TYPE CL_RSBK_REQUEST=>T_REQUID,
+      L_REQUEST TYPE RSREQUEST.
+    DATA:
+     LS_CROSS         TYPE RSBM_S_CROSSTAB.
+
+
+
+
+
+* ==== 0. initialization
+    CREATE OBJECT LR_MSG_COLL.
+* ==== 1. unpack segments
+    _R_SC_1              = I_R_INBOUND->GET_SEGMENT( 0001 ).
+    _RDT_SC_1            = _R_SC_1->GET_DATA( I_WITH_RECNO = RS_C_TRUE ).
+    ASSIGN _RDT_SC_1->*            TO <_YT_SC_1>.
+    L_FIELDNAME = 'RECORD_ALL'.
+    ASSIGN (L_FIELDNAME) TO <L_RECORD_ALL>.
+    IF SY-SUBRC = 0.
+      DESCRIBE TABLE <_YT_SC_1> LINES <L_RECORD_ALL>.
+    ENDIF.
+
+
+    DATA: L_T_FIELDNM TYPE RSAR_T_FIELDNAMES.
+
+    _R_TG_1              = E_R_OUTBOUND->GET_SEGMENT( 0001 ).
+    _RDT_TG_1_DP         = _R_TG_1->GET_EMPTY_TABLE( ).
+
+*   get transformation target list and set in segment
+    CALL METHOD GET_FIELDS_POPULATED0001
+      IMPORTING
+        E_T_FIELDNM = L_T_FIELDNM.
+    _R_TG_1->SET_T_FIELDS_POPULATED( L_T_FIELDNM ).
+
+    _RDS_TG_1            = _R_TG_1->GET_WORKAREA( ).
+    ASSIGN _RDS_TG_1->*            TO <_YS_TG_1>.
+    CREATE DATA _RDT_TG_1 TYPE _TY_T_TG_1.
+    ASSIGN _RDT_TG_1->*            TO <_YT_TG_1>.
+
+    _CURR_RULE-TRANID  = '0JLSXU1RLXML9FLWQGCYX5LDAS8W25TF'.
+    _CURR_RULE-PROGID  = '0OUY6JZNKDGX433P69IHLMYC0'.
+    _CURR_RULE-VERSION = '0'.
+
+    CALL METHOD CL_RSTRAN_RUNTIME_EXE=>GET_SUPPRESSED_RULES
+      EXPORTING
+        I_TRANID             = _CURR_RULE-TRANID
+        I_R_DATA             = E_R_OUTBOUND
+        I_R_DATA_IN          = I_R_INBOUND
+      IMPORTING
+        E_S_SUPPRESSED_RULES = _LS_SUPP.
+
+*   set attributs
+    P_CHECK_MASTER_DATA_EXIST = I_MASTER_DATA_EXIST.
+    P_R_REQUEST               = I_R_REQUEST.
+    L_SEGID                   = '0001'.
+
+    L_REQUID = I_R_INBOUND->N_REQUID.
+    IF L_REQUID IS NOT INITIAL.
+      TRY.
+          L_REQUEST = CL_RSBK_REQUEST=>CREATE_FROM_DB(
+             I_REQUID = L_REQUID )->GET_REQUID30( ).
+        CATCH CX_ROOT INTO DATA(L_R_X).
+          MESSAGE X299(RSBK).
+      ENDTRY.
+    ENDIF.
+
+
+* ==== Debugging ====
+* Breakpoint after start routine
+    IF I_R_TRFN_CMD IS BOUND.
+      READ TABLE I_R_TRFN_CMD->N_TH_BP
+           TRANSPORTING NO FIELDS
+           WITH TABLE KEY BPID    = 3
+                          DATAPID = I_R_INBOUND->N_DATAPAKID.
+      IF SY-SUBRC = 0.
+
+* --- Data ---
+*     See datapackage below
+
+* --- Debugging ---
+        BREAK-POINT.                                       "#EC NOBREAK
+
+      ENDIF.
+    ENDIF.
+
+
+
+* ==== 2. process data package
+    I_R_LOG->ADD_SUBSTEP( 'RULES' ).
+    LOOP AT <_YT_SC_1> ASSIGNING <_YS_SC_1>.
+
+      CLEAR:
+        _G_1,
+        _LT_MSG_REC,
+        _LT_MSG.
+      _CURR_RULE-RECORD = L_RECNO_SC_1 = <_YS_SC_1>-RECORD.
+      IF NOT <L_RECORD_NO> IS ASSIGNED.
+        IF <_YS_SC_1>-RECORD = 1.
+          L_FIELDNAME = 'RECORD_NO'.
+          ASSIGN (L_FIELDNAME) TO <L_RECORD_NO>.
+          IF SY-SUBRC = 0.
+            <L_RECORD_NO> = <_YS_SC_1>-RECORD.
+          ENDIF.
+        ENDIF.
+      ELSE.
+        <L_RECORD_NO> = <_YS_SC_1>-RECORD.
+      ENDIF.
+      TRY.
+
+* ======  RULES
+*<<<    Rule ID: '1'.
+          IF _LS_SUPP-_1 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '1'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-/BIC/MD_RS = <_YS_SC_1>-RESELLERKEY.
+          ENDIF.  "suppressed RULE
+*>>>
+*<<<    Rule ID: '2'.
+          IF _LS_SUPP-_2 EQ RS_C_FALSE.
+            _CURR_RULE-RULEID = '2'.
+*       Step ID: '1', Type: 'DIRECT'.
+            _CURR_RULE-STEPID = '1'.
+            _G_1-TXTLG = <_YS_SC_1>-RESELLERNAME.
+          ENDIF.  "suppressed RULE
+*>>>
+
+          IF _LT_MSG_REC IS NOT INITIAL.
+            CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+              EXPORTING
+                I_R_LOG        = I_R_LOG
+                I_RULE_CONTEXT = _CURR_RULE
+                I_SEG_ID       = `1`
+                I_S_DATA       = <_YS_SC_1>
+              CHANGING
+                C_T_MSG        = _LT_MSG_REC.
+          ENDIF.
+
+        CATCH CX_RSROUT_SKIP_RECORD INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          IF _LT_MSG[] IS NOT INITIAL.
+            _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+            _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+            _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+            LOOP AT _LT_MSG INTO _LS_MSG.
+              MOVE-CORRESPONDING _LS_MSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            ENDLOOP.
+          ENDIF.
+          IF _LT_MSG_REC IS NOT INITIAL.
+            CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+              EXPORTING
+                I_R_LOG        = I_R_LOG
+                I_CX_ROOT      = LR_CX_ROOT
+                I_RULE_CONTEXT = _CURR_RULE
+                I_SEG_ID       = `1`
+                I_S_DATA       = <_YS_SC_1>
+              CHANGING
+                C_T_MSG        = _LT_MSG_REC.
+          ENDIF.
+
+        CATCH CX_RSFO_SKIP_RECORD INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+
+        CATCH CX_RSFO_SKIP_RECORD_AS_ERROR INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_CX_ROOT      = LR_CX_ROOT
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_RSBK_ERRORCOUNT INTO LR_CX_RSBK_ERRORCOUNT.
+*         errorcount can't be determined
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL FUNCTION 'RS_EXCEPTION_TO_SYMSG'
+            EXPORTING
+              I_R_EXCEPTION = LR_CX_RSBK_ERRORCOUNT
+*             I_DEEPEST     =
+            .
+          MOVE-CORRESPONDING SYST TO _LS_MSG_REC-_S.
+          _LS_MSG_REC-_S-SKIPPED = RS_C_TRUE.
+          APPEND _LS_MSG_REC TO _LT_MSG_REC.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_FOEV_ERROR_IN_FUNCTION INTO LR_CX_ROOT.    "HW 980549
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CLEAR _LS_MSG_REC.
+          _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+          _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+          _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+
+          TRY.
+              L_RX_RSFO_ERROR_IN_FUNCTION ?= LR_CX_ROOT.
+              CALL METHOD L_RX_RSFO_ERROR_IN_FUNCTION->GET_MESSAGE
+                IMPORTING
+                  E_S_MSG = L_S_BALMSG.
+              MOVE-CORRESPONDING L_S_BALMSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            CATCH  CX_SY_MOVE_CAST_ERROR.
+          ENDTRY.
+
+          MESSAGE E535(RSAR)
+            WITH _CURR_RULE-RULEID _CURR_RULE-RECORD
+            INTO _LS_MSG_REC-_S-MSGTY.
+          MOVE-CORRESPONDING SYST TO _LS_MSG_REC-_S.
+          _LS_MSG_REC-_S-SKIPPED = RS_C_TRUE.
+          APPEND _LS_MSG_REC TO _LT_MSG_REC.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+        CATCH CX_SY_ARITHMETIC_ERROR INTO LR_CX_SY_ARITHMETIC_ERROR.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG                  = I_R_LOG
+              I_CX_SY_ARITHMETIC_ERROR = LR_CX_SY_ARITHMETIC_ERROR
+              I_RULE_CONTEXT           = _CURR_RULE
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_YS_SC_1>.
+
+        CATCH CX_SY_CONVERSION_ERROR  INTO LR_CX_SY_CONVERSION_ERROR.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG                  = I_R_LOG
+              I_CX_SY_CONVERSION_ERROR = LR_CX_SY_CONVERSION_ERROR
+              I_RULE_CONTEXT           = _CURR_RULE
+              I_SEG_ID                 = `1`
+              I_S_DATA                 = <_YS_SC_1>.
+
+        CATCH CX_ROOT INTO LR_CX_ROOT.
+          _SKIP_SEG_ALL = RS_C_TRUE.
+*--       all other cases handled by message proxy
+          IF _LT_MSG[] IS NOT INITIAL.
+            _LS_MSG_REC-RULEID   = _CURR_RULE-RULEID.
+            _LS_MSG_REC-STEPID   = _CURR_RULE-STEPID.
+            _LS_MSG_REC-_S-RECNO = _CURR_RULE-RECORD.
+            LOOP AT _LT_MSG INTO _LS_MSG.
+              MOVE-CORRESPONDING _LS_MSG TO _LS_MSG_REC-_S.
+              APPEND _LS_MSG_REC TO _LT_MSG_REC.
+            ENDLOOP.
+          ENDIF.
+
+          CALL METHOD CL_RSTRAN_RUNTIME_EXE=>MESSAGE_PROXY
+            EXPORTING
+              I_R_LOG        = I_R_LOG
+              I_CX_ROOT      = LR_CX_ROOT
+              I_RULE_CONTEXT = _CURR_RULE
+              I_SEG_ID       = `1`
+              I_S_DATA       = <_YS_SC_1>
+            CHANGING
+              C_T_MSG        = _LT_MSG_REC.
+
+      ENDTRY.       "RECORD
+
+* =====  PUT groups to target
+      IF _SKIP_SEG_ALL IS INITIAL.
+
+        ASSIGN _RDS_TG_1->*          TO <_YS_TG_1>.
+        CLEAR <_YS_TG_1>.
+        MOVE-CORRESPONDING _G_1 TO <_YS_TG_1>.
+        L_RECNO_TG_1          = L_RECNO_TG_1 + 1.
+        LS_CROSS-INSEGID      = 1.
+        LS_CROSS-INRECORD     = L_RECNO_SC_1.
+        LS_CROSS-OUTSEGID     = 1.
+        LS_CROSS-OUTRECORD    = L_RECNO_TG_1.
+
+        CALL METHOD I_R_LOG->ADD_CROSS_TAB
+          EXPORTING
+            I_S_CROSSTAB = LS_CROSS.
+
+**     Record# in target = sy-tabix - if sorting of table won't be changed
+        <_YS_TG_1>-RECORD     = L_RECNO_TG_1.
+
+        APPEND <_YS_TG_1> TO <_YT_TG_1>.
+
+*
+      ENDIF.
+      CLEAR _SKIP_SEG_ALL.
+    ENDLOOP.
+* -------- insert table into outbound segment ----
+
+
+* ==== Debugging ====
+* Breakpoint before end routine
+    IF I_R_TRFN_CMD IS BOUND.
+      READ TABLE I_R_TRFN_CMD->N_TH_BP
+           TRANSPORTING NO FIELDS
+           WITH TABLE KEY BPID    = 4
+                          DATAPID = I_R_INBOUND->N_DATAPAKID.
+      IF SY-SUBRC = 0.
+
+* --- Data ---
+*     See datapackage above..
+
+* --- Debugging ---
+        BREAK-POINT.                                       "#EC NOBREAK
+
+      ENDIF.
+    ENDIF.
+
+
+
+    IF L_REQUID NE 0.
+
+      DATA: L_R_REQUEST_0001     TYPE REF TO CL_RSBK_REQUEST,
+            L_ERRORHANDLING_0001 TYPE RSBKERRORHANDLING,
+            L_SKIP_0001          TYPE RS_BOOL.
+*-- get the request
+      TRY.
+          CALL METHOD CL_RSBK_REQUEST=>CREATE_FROM_DB
+            EXPORTING
+              I_REQUID    = L_REQUID
+            RECEIVING
+              R_R_REQUEST = L_R_REQUEST_0001.
+        CATCH CX_RS_NOT_FOUND .
+      ENDTRY.
+*-- get the error handling setting from the request
+      TRY.
+          CALL METHOD L_R_REQUEST_0001->GET_ERRORHANDLING
+            RECEIVING
+              R_ERRORHANDLING = L_ERRORHANDLING_0001.
+        CATCH CX_RS_ACCESS_ERROR .
+      ENDTRY.
+*-- only in case of error handling on
+      IF L_ERRORHANDLING_0001 NE RSBC_C_ERRORHANDLING-OFF.
+        LOOP AT <_YT_TG_1> ASSIGNING <_YS_TG_1>.
+          CALL METHOD I_R_LOG->VERIFY_RECORD
+            EXPORTING
+              I_SEGID         = 0001
+              I_RECORD        = <_YS_TG_1>-RECORD
+              I_USE_CROSSTAB  = RS_C_TRUE               " As it is the Target format
+            RECEIVING
+              R_SKIP          = L_SKIP_0001
+            EXCEPTIONS
+              TOO_MANY_ERRORS = 1
+              NOT_IN_CROSSTAB = 2
+              OTHERS          = 3.
+          IF SY-SUBRC <> 0.
+*-- too many errors/ not in crosstab abort
+            CALL FUNCTION 'RS_SYMESSAGE_TO_EXCEPTION'
+              EXPORTING
+                I_EXCEPTION   = 'CX_RS_MSG'
+              IMPORTING
+                E_R_EXCEPTION = LR_CX_ROOT.
+            CALL METHOD CL_RSBM_LOG_STEP=>RAISE_STEP_FAILED_CALLSTACK
+              EXPORTING
+                I_PREVIOUS = LR_CX_ROOT.
+          ELSEIF NOT L_SKIP_0001 IS INITIAL.
+            DELETE <_YT_TG_1>.
+          ENDIF.
+        ENDLOOP.
+      ENDIF.
+    ENDIF.
+
+    _R_TG_1->INSERT_TABLE( _RDT_TG_1 ).
+  ENDMETHOD.                 "execute
+
+  METHOD GET_FIELDS_POPULATED0001.
+
+    APPEND '/BIC/MD_RS' TO E_T_FIELDNM.
+    APPEND 'TXTLG' TO E_T_FIELDNM.
+
+  ENDMETHOD.
+
+
+
+ENDCLASS.                    "lcl_transform IMPLEMENTATION
+
+*&--------------------------------------------------------------------*
+*&      Form  get_runtime_ref
+*&--------------------------------------------------------------------*
+*       text
+*---------------------------------------------------------------------*
+*      -->C_R_EXE    text
+*---------------------------------------------------------------------*
+FORM GET_RUNTIME_REF
+  CHANGING C_R_EXE  TYPE REF TO OBJECT.
+
+*-- singelton instance
+  STATICS S_R_EXE TYPE REF TO LCL_TRANSFORM.
+
+  IF S_R_EXE IS NOT BOUND.
+    CREATE OBJECT S_R_EXE.
+  ENDIF.
+  C_R_EXE = S_R_EXE.
+
+ENDFORM.                    "get_runtime_ref
+
+*.. The following subroutine is for internal (FuGr RSSG) use only! ..*
+
+
+FORM _RSSG_PROGRAM_LOADCHECK
+     CHANGING E_S_PDIR TYPE RSSGTPDIR
+              E_FOUND  TYPE FLAG. "#EC CALLED
+CONSTANTS:
+BEGIN OF _RSSG_C_PCLA,
+  PROGCLASS TYPE  RSSGTPCLA-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  CLIDEP TYPE  RSSGTPCLA-CLIDEP
+    VALUE ' ',
+  GENFLAG TYPE  RSSGTPCLA-GENFLAG
+    VALUE 'X',
+  SUBC TYPE  RSSGTPCLA-SUBC
+    VALUE '1',
+  TEMPLATE TYPE  RSSGTPCLA-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+END   OF _RSSG_C_PCLA,
+
+BEGIN OF _RSSG_C_PDIR,
+  UNI_IDC25 TYPE  RSSGTPDIR-UNI_IDC25
+    VALUE '0OUY6JZNKDGX433P69IHLMYC0',
+  CLIENT TYPE  RSSGTPDIR-CLIENT
+    VALUE ' ',
+  PROGCLASS TYPE  RSSGTPDIR-PROGCLASS
+    VALUE 'RSTRAN_MASTER_TMPL',
+  PROGNAME TYPE  RSSGTPDIR-PROGNAME
+    VALUE 'GP0OUY6JZNKDGX433P69IHLMYC0',
+  CREUSER TYPE  RSSGTPDIR-CREUSER
+    VALUE 'C0000118',
+  CRETSTMP TYPE  RSSGTPDIR-CRETSTMP
+    VALUE 20250530092227,
+  GENUSER TYPE  RSSGTPDIR-GENUSER
+    VALUE 'C0000118',
+  GENTSTMP TYPE  RSSGTPDIR-GENTSTMP
+    VALUE 20250530092227,
+  GENRELEASE TYPE  RSSGTPDIR-GENRELEASE
+    VALUE '750',
+  GENSTATUS TYPE  RSSGTPDIR-GENSTATUS
+    VALUE '00',
+  TEMPLATE TYPE  RSSGTPDIR-TEMPLATE
+    VALUE 'RSTRAN_MASTER_TMPL',
+  UPDUSERTPL TYPE  RSSGTPDIR-UPDUSERTPL
+    VALUE 'SAP',
+  UPDDATETPL TYPE  RSSGTPDIR-UPDDATETPL
+    VALUE '20220526',
+  UPDTIMETPL TYPE  RSSGTPDIR-UPDTIMETPL
+    VALUE '153620',
+  SUBC TYPE  RSSGTPDIR-SUBC
+    VALUE '1',
+  WITH_SUBTEMPL TYPE  RSSGTPDIR-WITH_SUBTEMPL
+    VALUE 'X',
+END   OF _RSSG_C_PDIR.
+
+  MOVE-CORRESPONDING _RSSG_C_PDIR TO E_S_PDIR.
+  E_FOUND = 'X'.
+ENDFORM.

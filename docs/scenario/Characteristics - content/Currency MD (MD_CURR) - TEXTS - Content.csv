@@ -1,0 +1,110 @@
+06.06.25 Dynamic List Display                                                  1
+
+
+	/BIC/MD_CURR	TXTSH	TXTMD
+
+	         001	AFA	Afghani
+	         002	DZD	Algerian Dinar
+	         003	ARS	Argentine Peso
+	         004	AMD	Armenian Dram
+	         005	AWG	Aruban Guilder
+	         006	AUD	Australian Dollar
+	         007	AZM	Azerbaijanian Manat
+	         008	BSD	Bahamian Dollar
+	         009	BHD	Bahraini Dinar
+	         010	THB	Baht
+	         011	PAB	Balboa
+	         012	BBD	Barbados Dollar
+	         013	BEF	Belgian Franc
+	         014	VEB	Bolivar
+	         015	BOB	Boliviano
+	         016	BRL	Brazilian Real
+	         017	BND	Brunei Dollar
+	         018	BGN	Bulgarian Lev
+	         019	CAD	Canadian Dollar
+	         020	GHC	Cedi
+	         021	XOF	CFA Franc BCEAO
+	         022	CLP	Chilean Peso
+	         023	COP	Colombian Peso
+	         024	CRC	Costa Rican Colon
+	         025	HRK	Croatian Kuna
+	         026	CYP	Cyprus Pound
+	         027	CZK	Czech Koruna
+	         028	DKK	Danish Krone
+	         029	DEM	Deutsche Mark
+	         030	DOP	Dominican Peso
+	         031	VND	Dong
+	         032	GRD	Drachma
+	         033	EGP	Egyptian Pound
+	         034	SVC	El Salvador Colon
+	         035	AED	Emirati Dirham
+	         036	EUR	EURO
+	         037	FJD	Fiji Dollar
+	         038	HUF	Forint
+	         039	FRF	French Franc
+	         040	PYG	Guarani
+	         041	HKD	Hong Kong Dollar
+	         042	ISK	Iceland Krona
+	         043	INR	Indian Rupee
+	         044	IEP	Irish Pound
+	         045	ITL	Italian Lira
+	         046	JMD	Jamaican Dollar
+	         047	JOD	Jordanian Dinar
+	         048	KES	Kenyan Shilling
+	         049	EEK	Kroon
+	         050	KWD	Kuwaiti Dinar
+	         051	AOA	Kwanza
+	         052	LVL	Latvian Lats
+	         053	LBP	Lebanese Pound
+	         054	ALL	Lek
+	         055	ROL	Leu
+	         056	LTL	Lithuanian Litas
+	         057	MYR	Malaysian Ringgit
+	         058	MTL	Maltese Lira
+	         059	FIM	Markka
+	         060	MUR	Mauritius Rupee
+	         061	MXN	Mexican Peso
+	         062	MAD	Moroccan Dirham
+	         063	NGN	Naira
+	         064	NAD	Namibia Dollar
+	         065	NPR	Nepalese Rupee
+	         066	ANG	Netherlands Antillian Guilder
+	         067	NLG	Netherlands Guilder
+	         068	ILS	New Israeli Shekel
+	         069	TWD	New Taiwan Dollar
+	         070	NZD	New Zealand Dollar
+	         071	BTN	Ngultrum
+	         072	NOK	Norwegian Krone
+	         073	PEN	Nuevo Sol
+	         074	OMR	Omani Rial
+	         075	PKR	Pakistan Rupee
+	         076	PHP	Philippine Peso
+	         077	PLZ	Polish Zloty(old)
+	         078	PTE	Portuguese Escudo
+	         079	GTQ	Quetzal
+	         080	ZAR	Rand
+	         081	MVR	Rufiyaa
+	         082	IDR	Rupiah
+	         083	RUB	Russian Ruble
+	         084	RUR	Russian Ruble(old)
+	         085	SAR	Saudi Riyal
+	         086	ATS	Shilling
+	         087	SGD	Singapore Dollar
+	         088	SKK	Slovak Koruna
+	         089	ESP	Spanish Peseta
+	         090	LKR	Sri Lankan Rupee
+	         091	SEK	Swedish Krona
+	         092	CHF	Swiss Franc
+	         093	BDT	Taka
+	         094	SIT	Tolar
+	         095	TTD	Trinidad and Tobago Dollar
+	         096	TND	Tunisian Dinar
+	         097	TRL	Turkish Lira
+	         098	GBP	United Kingdom Pound
+	         099	UYU	Uruguayan Peso
+	         100	USD	US Dollar
+	         101	KRW	Won
+	         102	JPY	Yen
+	         103	CNY	Yuan Renminbi
+	         104	ZWD	Zimbabwe Dollar
+	         105	PLN	Zloty
