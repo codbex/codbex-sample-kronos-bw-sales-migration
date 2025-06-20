@@ -21,7 +21,7 @@ log "Script path: $script_path"
 # copy ORAS artifacts
 rm -rf oras-artifacts
 mkdir -p oras-artifacts
-cp -r /target/dirigible/repository/root/registry/public/oras-artifacts/. ./oras-artifacts/
+cp -r ../../../../../root/registry/public/oras-artifacts/. ./oras-artifacts/
 
 rm -rf node_modules
 
