@@ -7,8 +7,9 @@ class ProcessService {
     @Post("/processes/sls_mp")
     public startProcess(parameters: any) {
         const processKey = 'sls_mp';
+        const businessKey = 'sls_mp_bk';
         const params = parameters ? parameters : {};
-        const processInstanceId = process.start(processKey, params);
+        const processInstanceId = process.start(processKey, businessKey, params);
 
         response.setStatus(response.ACCEPTED);
         return {
