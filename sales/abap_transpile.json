@@ -13,7 +13,7 @@
       "url": "https://github.com/open-abap/open-abap-bal"
     },
     {
-      "folder": "/abap-bw",
+      "folder": "/oras-artifacts/abap-bw",
       "files": "/src/**/*"
     }
   ],
