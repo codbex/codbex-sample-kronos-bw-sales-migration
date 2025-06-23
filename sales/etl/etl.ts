@@ -31,12 +31,12 @@ export function extractEntries(tableName: string): any[] {
 
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
     return logExecutionTime("Entries transformation took [{}]ms", async () => {
-        logger.debug("[{}] entries need to be transformed.", sourceEntries.length);
+        logger.debug("[{}] entries need to be transformed using transformation with id [{}].", sourceEntries.length, transformationId);
         logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
 
         const transformedEntries = await abapTransformEntries(transformationId, sourceEntries);
 
-        logger.info("Transformation of [{}] entries to [{}] completed", sourceEntries.length, transformedEntries.length);
+        logger.info("Transformation of [{}] entries to [{}] using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
         logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
 
         return transformedEntries;
