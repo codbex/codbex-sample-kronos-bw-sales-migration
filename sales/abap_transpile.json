@@ -25,6 +25,7 @@
     "extraSetup": "",
     "addFilenames": true,
     "addCommonJS": true,
+    "importProg": true,
     "unknownTypes": "runtimeError",
     "skip": []
   }
