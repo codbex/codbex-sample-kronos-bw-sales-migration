@@ -1,0 +1,19 @@
+Pos.,Field,Description,Detail Desc.,Data Type,Length,Decimal Places,External Length,Conversion Routines,Format
+1,PRODUCTFK,ProductFK,,NUMC,4,0,4,,Internal
+2,CUSTOMERFK,CustomerFK,,NUMC,5,0,5,,Internal
+3,PROMOTIONFK,PromotionFK,,NUMC,3,0,3,,Internal
+4,CURRENCYFK,CurrencyFK,,NUMC,3,0,3,,External
+5,CURRENCY,Currency,,CUKY,5,0,5,RSCUK,External
+6,SALETERRITORYFK,SaleTerritoryFK,,NUMC,3,0,3,,Internal
+7,SALESORDERNUMBER,SalesOrderNumberDD,,CHAR,7,0,7,,Internal
+8,SALESORDERLINENU,SalesOrderLineNumber,,NUMC,1,0,1,,Internal
+9,ORDERQUANTITY,OrderQuantity,,QUAN,1,0,1,,Internal
+10,DISCOUNTAMOUNT,DiscountAmount,,CURR,10,2,10,,Internal
+11,TOTALPRODUCTCOST,TotalProductCost,,CURR,10,2,10,,Internal
+12,SALESAMOUNT,SalesAmount,,CURR,10,2,10,,Internal
+13,TAXAMOUNT,TaxAmount,,CURR,10,2,10,,Internal
+14,FREIGHT,Freight,,CHAR,7,0,7,,Internal
+15,ORDERDATE,OrderDate,,DATS,8,0,10,RSDAT,External
+16,DUEDATE,DueDate,,DATS,8,0,10,RSDAT,External
+17,SHIPDATE,ShipDate,,DATS,8,0,10,RSDAT,External
+18,SALEFLAG,SaleFlag,,CHAR,2,0,2,,Internal
