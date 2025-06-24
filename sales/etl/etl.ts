@@ -65,7 +65,7 @@ function deleteAllFromTableTable(tableName: string) {
 }
 
 function prepareEntries(entries: any[]) {
-    const skippedMembers = ['RECORD', 'CHNGID', 'RECORDTP', 'REQUID'];
+    const skippedMembers = ['RECORD', 'CHNGID', 'RECORDTP', 'REQUID', 'SID', 'DATAPAKID', 'RECORDMODE'];
 
     const preparedEntries = entries.map(entry => {
         return Object.entries(entry).reduce((acc, [key, value]) => {
