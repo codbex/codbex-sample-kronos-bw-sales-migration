@@ -23,7 +23,6 @@ export function extractEntries(tableName: string): any[] {
         const entries = query.execute(sqlScript, undefined, undefined, resultParameters);
 
         logger.info("Extraction of [{}] entries from table [{}] completed", entries.length, tableName);
-        logger.debug("Extracted entries:\n{}", prettyPrintJson(entries));
 
         return entries;
     });
@@ -31,13 +30,11 @@ export function extractEntries(tableName: string): any[] {
 
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
     return logExecutionTime("Entries transformation took [{}]ms", async () => {
-        logger.debug("[{}] entries need to be transformed using transformation with id [{}].", sourceEntries.length, transformationId);
-        logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
+        logger.info("[{}] entries need to be transformed using transformation with id [{}].", sourceEntries.length, transformationId);
 
         const transformedEntries = await abapTransformEntries(transformationId, sourceEntries);
 
         logger.info("Transformation of [{}] entries to [{}] using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
-        logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
 
         return transformedEntries;
     });
@@ -84,7 +81,6 @@ function prepareEntries(entries: any[]) {
 
 function insertIntoTargetTable(tableName: string, entries: any[]) {
     logger.debug("[{}] entries have to be upserted into the target.", entries.length);
-    logger.debug("Entries:\n{}", prettyPrintJson(entries));
 
     if (entries.length === 0) {
         logger.debug("No entries for insert");
