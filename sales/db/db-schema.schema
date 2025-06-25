@@ -506,9 +506,9 @@
                     {
                         "name": "CUSTOMERPURCHASE",
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": "20",
                         "nullable": true,
-                        "primaryKey": true,
+                        "primaryKey": "true",
                         "identity": false,
                         "unique": false,
                         "defaultValue": null,
@@ -968,7 +968,7 @@
                     {
                         "name": "/BIC/MD_CPON",
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": "20",
                         "nullable": true,
                         "primaryKey": "true",
                         "identity": false,
@@ -1178,7 +1178,7 @@
                     {
                         "name": "/BIC/MD_CPON",
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": "20",
                         "nullable": true,
                         "primaryKey": false,
                         "identity": false,
