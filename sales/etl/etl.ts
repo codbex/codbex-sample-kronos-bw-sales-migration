@@ -14,7 +14,6 @@ export function extractEntries(tableName: string): any[] {
         const sqlScript = sql.getDialect()
             .select()
             .from(tableName)
-            .limit(4)
             .build();
 
         const resultParameters = {
