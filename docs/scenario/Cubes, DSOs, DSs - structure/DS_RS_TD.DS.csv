@@ -22,7 +22,7 @@ Pos.,FIELDNAME,Description,Detail Desc.,DATATYPE,LENG,DECIMALS,External Length,C
 21,TAXAMOUNT,TaxAmount,,DEC,15,0,15,,Internal,
 22,FREIGHT,Freight,,CHAR,8,0,8,,Internal,
 23,CARRIERTRACKINGN,CarrierTrackingNumbe,,CHAR,12,0,12,,Internal,
-24,CUSTOMERPURCHASE,CustomerPurchaseOrde,,CHAR,20,0,20,,Internal,
+24,CUSTOMERPURCHASE,CustomerPurchaseOrde,,CHAR,20,0,20,,Internal,X
 25,ORDER,Order,,DATS,8,0,13,RSDAT,External,
 26,DUE,Due,,DATS,8,0,14,RSDAT,External,
 27,SHIP,Ship,,DATS,8,0,13,RSDAT,External,

@@ -44,7 +44,7 @@
     <column name="TAXAMOUNT" type="DECIMAL" precision="17" scale="2"></column>
     <column name="FREIGHT" type="VARCHAR" length="8"></column>
     <column name="CARRIERTRACKINGN" type="VARCHAR" length="12"></column>
-    <column name="CUSTOMERPURCHASE" type="VARCHAR" length="20"></column>
+    <column name="CUSTOMERPURCHASE" type="VARCHAR" length="20" primaryKey="true"></column>
     <column name="ORDER" type="DATE"></column>
     <column name="DUE" type="DATE"></column>
     <column name="SHIP" type="DATE"></column>

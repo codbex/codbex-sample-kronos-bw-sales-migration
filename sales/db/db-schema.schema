@@ -508,7 +508,7 @@
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "primaryKey": false,
+                        "primaryKey": true,
                         "identity": false,
                         "unique": false,
                         "defaultValue": null,
