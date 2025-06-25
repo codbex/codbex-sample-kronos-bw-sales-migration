@@ -4,8 +4,10 @@
     nodePrefixId: http-route-52f
     from:
       id: from-a460
-      uri: direct:dso-to-cube
       description: Expose route
+      uri: direct
+      parameters:
+        name: dso-to-cube
       steps:
         - log:
             id: log-46r3
