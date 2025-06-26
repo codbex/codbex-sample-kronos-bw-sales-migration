@@ -4,7 +4,7 @@ import { transformEntries as abapTransformEntries } from "/sales/dist/abap-trans
 import { sql, query, update, insert } from "sdk/db";
 
 const ABAP_DATE_FORMAT = 'yyyyMMdd';
-const INSERT_BATCH_SIZE = 500;
+const INSERT_BATCH_SIZE = 1000;
 
 const logger = getLogger(import.meta.url);
 
