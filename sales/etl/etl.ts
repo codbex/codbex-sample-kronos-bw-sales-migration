@@ -16,7 +16,7 @@ export function extractEntries(tableName: string): any[] {
         const sqlScript = sql.getDialect()
             .select()
             .from(tableName)
-            .limit(EXTRACTION_LIMIT)
+//             .limit(EXTRACTION_LIMIT)
             .build();
 
         const resultParameters = {
@@ -33,16 +33,8 @@ export function extractEntries(tableName: string): any[] {
 }
 
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
-    return logExecutionTime("Entries transformation took [{}]ms", async () => {
-        logger.info("Transforming [{}] entries using transformation with id [{}]", sourceEntries.length, transformationId);
-        logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
-
-        const transformedEntries = await abapTransformEntries(transformationId, sourceEntries);
-
-        logger.info("Transformation of [{}] entries to [{}] entries using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
-        logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
-
-        return transformedEntries;
+    return logExecutionTime("Entries transformation took [{}]ms. Transformation " + transformationId, async () => {
+       return await abapTransformEntries(transformationId, sourceEntries);
     });
 }
 
