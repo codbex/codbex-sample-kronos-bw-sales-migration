@@ -25,6 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm test
+      - run: sh build-linux.sh
   validate-abap-transpilation-macos:
     runs-on: macos-latest
     timeout-minutes: 10
@@ -39,3 +40,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm test
+      - run: sh build-mac.sh
