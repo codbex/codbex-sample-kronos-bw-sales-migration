@@ -14,7 +14,7 @@ const headers = {};
 const exchangeProperties = {
     "sourceTable": "TD_IS",
     "targetTable": "TD_IS_C",
-    "transformationId": "0TV24F1JY884H1C30RDIC36ST131L5UT"
+    "transformationId": "0TV24F1JY884H1C30RDIC36ST131L5UT" // gp0ouy6jznkdgx433ra0z880bxz.prog.abap
 };
 
 logger.info("Invoking route [{}] for process instance with id [{}] using exchange properties {}...", ETL_ROUTE_CAMEL_URI, processInstanceId, exchangeProperties);
