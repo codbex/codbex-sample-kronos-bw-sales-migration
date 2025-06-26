@@ -1,0 +1,35 @@
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "$scope.onTriggerClicked = function(){\n    $http.post(\"/services/ts/sales/bpmn/ProcessService.ts/processes/sls_mp\", JSON.stringify($scope.model)).then(function (response) {\n        if (response.status != 202) {\n            alert(`Unable to trigger a new process: '${response.message}'`);\n            return;\n        }\n        alert(\"A new process instance has been triggered.\\nResponse: \" + JSON.stringify(response.data));\n    });\n}\n",
+    "form": [
+        {
+            "controlId": "header",
+            "groupId": "fb-display",
+            "title": "SLS_MP process",
+            "headerSize": 1
+        },
+        {
+            "controlId": "container-vbox",
+            "groupId": "fb-containers",
+            "children": [
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "title": "Use this form to trigger a new execution of the SLS_MP process",
+                    "headerSize": 5
+                }
+            ]
+        },
+        {
+            "controlId": "button",
+            "groupId": "fb-controls",
+            "label": "Trigger execution",
+            "type": "emphasized",
+            "sizeToText": false,
+            "isSubmit": true,
+            "isCompact": false,
+            "callback": "onTriggerClicked()"
+        }
+    ]
+}
