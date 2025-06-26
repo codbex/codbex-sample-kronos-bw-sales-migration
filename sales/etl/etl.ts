@@ -5,7 +5,7 @@ import { sql, query, update, insert } from "sdk/db";
 
 const ABAP_DATE_FORMAT = 'yyyyMMdd';
 const INSERT_BATCH_SIZE = 1000;
-const EXTRACTION_LIMIT = 3210;
+const EXTRACTION_LIMIT = 2210;
 
 const logger = getLogger(import.meta.url);
 
