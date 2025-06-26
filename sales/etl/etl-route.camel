@@ -1,20 +1,20 @@
 - route:
     id: http-route-b0a6
-    description: ETL - DSO to Cube
+    description: ETL
     nodePrefixId: http-route-52f
     from:
       id: from-a460
       description: Expose route
       uri: direct
       parameters:
-        name: dso-to-cube
+        name: etl-route
       steps:
         - log:
             id: log-46r3
             description: Log started message
             message: Triggered execution
             loggingLevel: INFO
-            logName: DsoToCubeCamelRouteLogger
+            logName: ETLCamelRouteLogger
         - to:
             id: to-6dht
             description: Extract data from source table
@@ -38,7 +38,7 @@
             description: Log completed message
             message: Execution has completed
             loggingLevel: INFO
-            logName: DsoToCubeCamelRouteLogger
+            logName: ETLCamelRouteLogger
         - setBody:
             id: setBody-fb57
             description: Set completed message
