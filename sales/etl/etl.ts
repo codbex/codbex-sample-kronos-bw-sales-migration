@@ -5,15 +5,18 @@ import { sql, query, update, insert } from "sdk/db";
 
 const ABAP_DATE_FORMAT = 'yyyyMMdd';
 const INSERT_BATCH_SIZE = 1000;
+const EXTRACTION_LIMIT = 3210;
 
 const logger = getLogger(import.meta.url);
 
 export function extractEntries(tableName: string): any[] {
     return logExecutionTime("Entries extraction took [{}]ms", () => {
 
+        logger.info("Extracting entries from table [{}]...", tableName);
         const sqlScript = sql.getDialect()
             .select()
             .from(tableName)
+            .limit(EXTRACTION_LIMIT)
             .build();
 
         const resultParameters = {
@@ -31,12 +34,12 @@ export function extractEntries(tableName: string): any[] {
 
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
     return logExecutionTime("Entries transformation took [{}]ms", async () => {
-        logger.debug("[{}] entries need to be transformed using transformation with id [{}].", sourceEntries.length, transformationId);
+        logger.info("Transforming [{}] entries using transformation with id [{}]", sourceEntries.length, transformationId);
         logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
 
         const transformedEntries = await abapTransformEntries(transformationId, sourceEntries);
 
-        logger.info("Transformation of [{}] entries to [{}] using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
+        logger.info("Transformation of [{}] entries to [{}] entries using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
         logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
 
         return transformedEntries;
@@ -45,6 +48,7 @@ export async function transformEntries(transformationId: string, sourceEntries: 
 
 export function loadEntries(tableName: string, entries: any[]) {
     return logExecutionTime("Entries load took [{}]ms", () => {
+        logger.info("Loading [{}] entries into table [{}]", entries.length, tableName);
 
         deleteAllFromTableTable(tableName);
 
@@ -78,6 +82,8 @@ function prepareEntries(entries: any[]) {
             return acc;
         }, {} as Record<string, any>);
     });
+
+    logger.debug("Entries:\n{}\nwere prepared to\n{}", prettyPrintJson(entries), prettyPrintJson(preparedEntries));
 
     return preparedEntries
 }
