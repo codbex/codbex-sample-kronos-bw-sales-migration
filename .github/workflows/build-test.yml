@@ -14,14 +14,14 @@ jobs:
   validate-abap-transpilation:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ./sales
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: npm ci
-        working-directory: ./sales
       - run: npm run pull
-        working-directory: ./sales
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm test
-        working-directory: ./sales
