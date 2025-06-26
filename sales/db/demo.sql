@@ -39,15 +39,14 @@ SELECT COUNT(*) from TD_RS_C;
 ------ 4. Check result ------
 
 -- Expected X entries in TD_IS_C
-SELECT COUNT(*) from TD_IS_C; 
+SELECT COUNT(*) from TD_IS_C;
 
 -- Show first 10 entries in TD_IS_C
 SELECT * from TD_IS_C LIMIT 10;
 
 
 -- Expected X entries in TD_RS_C
-SELECT COUNT(*) from TD_RS_C; 
+SELECT COUNT(*) from TD_RS_C;
 
 -- Show first 10 entries in TD_RS_C
 SELECT * from TD_RS_C LIMIT 10;
-
