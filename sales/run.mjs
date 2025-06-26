@@ -8,14 +8,24 @@ console.log("ABAP has been initialized.");
 const rows = [];
 for (let index = 0; index < 60000; index++) {
   rows.push(`{
-  "FISCVARNT": "Z1",
-  "SUBTOTAL_1": 0,
-  "SUBTOTAL_2": 0,
-  "SUBTOTAL_3": 0,
-  "SUBTOTAL_4": 0,
-  "SUBTOTAL_5": 0,
-  "SUBTOTAL_6": 0,
-  "CURRENCY": "AUD"
+    "PRODUCTFK": 2,
+    "CUSTOMERFK": 2,
+    "PROMOTIONFK": 2,
+    "CURRENCYFK": 2,
+    "CURRENCY": "EUR",
+    "SALETERRITORYFK": 2,
+    "SALESORDERNUMBER": "${(index + "").padStart(7, "0")}",
+    "SALESORDERLINENU": 10,
+    "ORDERQUANTITY": 2,
+    "DISCOUNTAMOUNT": 2,
+    "TOTALPRODUCTCOST": 2,
+    "SALESAMOUNT": 2,
+    "TAXAMOUNT": 2,
+    "FREIGHT": "HELLO",
+    "ORDERDATE": "20250626",
+    "DUEDATE": "20250626",
+    "SHIPDATE": "20250626",
+    "SALEFLAG": "AB"
 }`);
 }
 
