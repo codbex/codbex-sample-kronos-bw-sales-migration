@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "table": "DS_IS_TD",
+      "schema": "PUBLIC",
+      "file": "/sales/db/DS_IS_TD - content.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0",
+      "upsert": false
+    },
+    {
+      "table": "DS_RS_TD",
+      "schema": "PUBLIC",
+      "file": "/sales/db/DS_RS_TD - content.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0",
+      "upsert": false
+    }
+  ]
+}

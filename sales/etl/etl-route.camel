@@ -1,0 +1,48 @@
+- route:
+    id: http-route-b0a6
+    description: ETL
+    nodePrefixId: http-route-52f
+    from:
+      id: from-a460
+      description: Expose route
+      uri: direct
+      parameters:
+        name: etl-route
+      steps:
+        - log:
+            id: log-46r3
+            description: Log started message
+            message: Triggered execution
+            loggingLevel: INFO
+            logName: ETLCamelRouteLogger
+        - to:
+            id: to-6dht
+            description: Extract data from source table
+            uri: dirigible-java-script
+            parameters:
+              javaScriptPath: sales/etl/data-extractor.ts
+        - to:
+            id: to-crt4
+            description: Transform source entries
+            uri: dirigible-java-script
+            parameters:
+              javaScriptPath: sales/etl/transform-entries.ts
+        - to:
+            id: to-drh4
+            description: Load entries into target table
+            uri: dirigible-java-script
+            parameters:
+              javaScriptPath: sales/etl/data-loader.ts
+        - log:
+            id: log-53hd
+            description: Log completed message
+            message: Execution has completed
+            loggingLevel: INFO
+            logName: ETLCamelRouteLogger
+        - setBody:
+            id: setBody-fb57
+            description: Set completed message
+            expression:
+              simple:
+                id: simple-3f4a
+                expression: Execution has completed!
