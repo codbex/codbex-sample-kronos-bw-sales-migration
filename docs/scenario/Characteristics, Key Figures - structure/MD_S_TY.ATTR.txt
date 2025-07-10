@@ -1,0 +1,10 @@
+28.06.2025                                                                                                        Dynamic List Display                                                                                                                                                                 1
+
+
+	TABNAME	FIELDNAME	AS4LOCAL	AS4VERS	POSITION	KEYFLAG	MANDATORY	ROLLNAME	CHECKTABLE	ADMINFIELD	INTTYPE	INTLEN	REFTABLE	PRECFIELD	REFFIELD	CONROUT	NOTNULL	DATATYPE	  LENG	DECIMALS	DOMNAME	SHLPORIGIN	TABLETYPE	DEPTH	COMPTYPE	REFTYPE	LANGUFLAG	DBPOSITION	ANONYMOUS	OUTPUTSTYLE
+
+	/BIC/PMD_S_TY	/BIC/MD_CNTR	A	   0000	    0004			/BIC/OIMD_CNTR	*	0	C	000080					X	CHAR	000040	  000000	/BIC/OMD_CNTR	D		   00	E			      0000		         00
+	/BIC/PMD_S_TY	/BIC/MD_C_GR	A	   0000	    0005			/BIC/OIMD_C_GR	*	0	C	000040					X	CHAR	000020	  000000	/BIC/OMD_C_GR	D		   00	E			      0000		         00
+	/BIC/PMD_S_TY	/BIC/MD_S_TY	A	   0000	    0001	X		/BIC/OIMD_S_TY	*	0	N	000006					X	NUMC	000003	  000000	/BIC/OMD_S_TY	D		   00	E			      0000		         00
+	/BIC/PMD_S_TY	CHANGED	A	   0000	    0003			RSRCHANGEFLAG		0	C	000002					X	CHAR	000001	  000000	RSRCHANGEFLAG	F		   00	E			      0000		         00
+	/BIC/PMD_S_TY	OBJVERS	A	   0000	    0002	X		RSOBJVERS		0	C	000002					X	CHAR	000001	  000000	RSOBJVERS	F		   00	E			      0000		         00

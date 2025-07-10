@@ -1,0 +1,7 @@
+28.06.2025                                                                                                      Dynamic List Display                                                                                                                                                               1
+
+
+	TABNAME	FIELDNAME	AS4LOCAL	AS4VERS	POSITION	KEYFLAG	MANDATORY	ROLLNAME	CHECKTABLE	ADMINFIELD	INTTYPE	INTLEN	REFTABLE	PRECFIELD	REFFIELD	CONROUT	NOTNULL	DATATYPE	  LENG	DECIMALS	DOMNAME	SHLPORIGIN	TABLETYPE	DEPTH	COMPTYPE	REFTYPE	LANGUFLAG	DBPOSITION	ANONYMOUS	OUTPUTSTYLE
+
+	/BIC/TMD_EMP	/BIC/MD_EMP	A	   0000	    0001	X		/BIC/OIMD_EMP	*	0	N	000008					X	NUMC	000004	  000000	/BIC/OMD_EMP	D		   00	E			      0000		         00
+	/BIC/TMD_EMP	TXTMD	A	   0000	    0002			RSTXTMD		0	C	000080					X	CHAR	000040	  000000	TEXT40			   00	E			      0000		         00
