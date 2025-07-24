@@ -16,12 +16,12 @@
 		<bk-fieldset class="fd-margin--tiny" ng-form="forms.form">
 			<bk-form-group>
 
-				<h1 bk-title header-size="1">SLS_MP process</h1>
+				<h1 bk-title header-size="1">{{ 'sales:t.SLSMPprocess' | t:'SLS_MP process' }}</h1>
 				<div class=" bk-vbox bk-box--gap bk-box--items-stretch">
-				<h5 bk-title header-size="5">Use this form to trigger a new execution of the SLS_MP process</h5>
+				<h5 bk-title header-size="5">{{ 'sales:t.UsethisformtotriggeranewexecutionoftheSLSMPprocess' | t:'Use this form to trigger a new execution of the SLS_MP process' }}</h5>
 				</div>
 				<div>
-					<bk-button class="bk-full-width" type="submit" ng-disabled="!forms.form.$valid" label="Trigger execution" compact="false" state="emphasized" ng-click="onTriggerClicked()"></bk-button>
+					<bk-button class="bk-full-width" type="submit" ng-disabled="!forms.form.$valid" label="{{ 'sales:t.Triggerexecution' | t:'Trigger execution' }}" compact="false" state="emphasized" ng-click="onTriggerClicked()"></bk-button>
 				</div>
 			</bk-form-group>
 		</bk-fieldset>

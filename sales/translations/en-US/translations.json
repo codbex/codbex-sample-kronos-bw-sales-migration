@@ -1,0 +1,14 @@
+{
+  "aria": {
+    "showHide": "show/hide {{element}} options",
+    "options": "{{element}} options"
+  },
+  "default": {
+    "viewName": "{{name}} Form"
+  },
+  "t": {
+    "SLSMPprocess": "SLS_MP process",
+    "UsethisformtotriggeranewexecutionoftheSLSMPprocess": "Use this form to trigger a new execution of the SLS_MP process",
+    "Triggerexecution": "Trigger execution"
+  }
+}
