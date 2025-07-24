@@ -6,7 +6,7 @@
         {
             "controlId": "header",
             "groupId": "fb-display",
-            "title": "SLS_MP process",
+            "label": "SLS_MP process",
             "headerSize": 1
         },
         {
@@ -16,7 +16,7 @@
                 {
                     "controlId": "header",
                     "groupId": "fb-display",
-                    "title": "Use this form to trigger a new execution of the SLS_MP process",
+                    "label": "Use this form to trigger a new execution of the SLS_MP process",
                     "headerSize": 5
                 }
             ]
