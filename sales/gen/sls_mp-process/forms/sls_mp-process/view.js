@@ -6,6 +6,12 @@
 const viewData = {
 	id: 'sales-form',
 	label: 'sales Form',
+	translation: {
+		key: 'sales:default.viewName',
+		options: {
+			name: 'sales',
+		}
+	},
 	region: 'bottom',
 	lazyLoad: false,
 	autoFocusTab: false,

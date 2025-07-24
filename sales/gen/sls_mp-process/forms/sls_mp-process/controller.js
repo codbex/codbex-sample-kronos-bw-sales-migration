@@ -1,4 +1,4 @@
-angular.module('forms', ['blimpKit', 'platformView']).controller('FormController', ($scope, $http, ViewParameters) => {
+angular.module('forms', ['blimpKit', 'platformView', 'platformLocale']).controller('FormController', ($scope, $http, LocaleService, ViewParameters) => {
     $scope.forms = {
         form: {}
     };
