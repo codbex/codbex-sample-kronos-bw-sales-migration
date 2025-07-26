@@ -33,13 +33,14 @@ const json = `[\n${rows.join(",\n")}]`;
 
 console.log("Executing ABAP code...");
 const t0 = performance.now();
-const result = await cl_runner.transform({
-  transformation: new abap.types.String().set(`0F6HG21PA0TK50C7KN4GA0325H9G7YOH`), // is gp0ouy6jznkdgx433nt82k6s7yn.prog.abap
+const result = await cl_runner.transform_v2({
+  settings: new abap.types.Structure({trace: new abap.types.Character().set("X")}),
+  program: new abap.types.String().set(`gp0ouy6jznkdgx433nt82k6s7yn`),
   source_json: new abap.types.String().set(json)});
 const t1 = performance.now();
 
 console.log(`Result:`);
-const parsed = JSON.parse(result.get());
+const parsed = JSON.parse(result.get().target_json.get());
 if (parsed.length < 10) {
   console.dir(parsed);
 }
