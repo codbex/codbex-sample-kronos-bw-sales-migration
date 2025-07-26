@@ -3,6 +3,7 @@ abap-bw
 dist
 
 **/dist
+**/*.0x/*
 **/.idea
 .settings/
 .idea/
