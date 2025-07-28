@@ -10,7 +10,7 @@
         </flowable:field>
       </extensionElements>
     </serviceTask>
-    <serviceTask id="trigger-td_is-to-ts_id_c" name="Trigger TD_IS To TD_IS_C (0TV24F1JY884H1C30RDIC36ST131L5UT)" flowable:async="true" flowable:exclusive="false" flowable:delegateExpression="${JSTask}">
+    <serviceTask id="trigger-td_is-to-ts_id_c" name="Trigger TD_IS To TD_IS_C (0TV24F1JY884H1C30RDIC36ST131L5UT)" flowable:async="true" flowable:delegateExpression="${JSTask}">
       <extensionElements>
         <flowable:field name="handler">
           <flowable:string><![CDATA[sales/bpmn/trigger-td_is-to-ts_id_c-task.ts]]></flowable:string>
@@ -24,7 +24,7 @@
         </flowable:field>
       </extensionElements>
     </serviceTask>
-    <serviceTask id="trigger-td_rs-to-td_rs_c" name="Trigger TD_RS to TD_RS_C (0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N)" flowable:async="true" flowable:exclusive="false" flowable:delegateExpression="${JSTask}">
+    <serviceTask id="trigger-td_rs-to-td_rs_c" name="Trigger TD_RS to TD_RS_C (0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N)" flowable:async="true" flowable:delegateExpression="${JSTask}">
       <extensionElements>
         <flowable:field name="handler">
           <flowable:string><![CDATA[sales/bpmn/trigger-td_rs-to-td_rs_c-task.ts]]></flowable:string>
@@ -95,9 +95,9 @@
         <omgdi:waypoint x="397.50002696262925" y="675.0000190193017"/>
         <omgdi:waypoint x="397.5000136406747" y="639.9141997455199"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-7FFF4720-F194-4B8B-89EB-A09786D5217D" id="BPMNEdge_sid-7FFF4720-F194-4B8B-89EB-A09786D5217D" flowable:sourceDockerX="50.0" flowable:sourceDockerY="39.999999999999986" flowable:targetDockerX="14.0" flowable:targetDockerY="14.000000000000002">
+      <bpmndi:BPMNEdge bpmnElement="sid-7FFF4720-F194-4B8B-89EB-A09786D5217D" id="BPMNEdge_sid-7FFF4720-F194-4B8B-89EB-A09786D5217D" flowable:sourceDockerX="50.0" flowable:sourceDockerY="39.999999999999986" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
         <omgdi:waypoint x="397.50003969668444" y="105.000001479279"/>
-        <omgdi:waypoint x="397.50004209261243" y="57.949935210192514"/>
+        <omgdi:waypoint x="397.5000420989335" y="57.94993521019251"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="sid-4F7CFA03-734B-42D4-92D8-10AE234E40C1" id="BPMNEdge_sid-4F7CFA03-734B-42D4-92D8-10AE234E40C1" flowable:sourceDockerX="20.0" flowable:sourceDockerY="20.0" flowable:targetDockerX="95.00000059875572" flowable:targetDockerY="39.49999998591167">
         <omgdi:waypoint x="385.5776119180228" y="611.9217184668654"/>
