@@ -1,0 +1,1386 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "/BIC/TMD_CURR",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_CURR",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTSH",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_CUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_AD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CUS",
+                        "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_ED",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_HO",
+                        "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_MS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_NC",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_OC",
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_CU_YI",
+                        "type": "DECIMAL",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": 17,
+                        "scale": 2
+                    },
+                    {
+                        "name": "/BIC/MD_C_ALT",
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_BD",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_EM",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_GN",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PH",
+                        "type": "VARCHAR",
+                        "length": 19,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_CUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_CUS",
+                        "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTLG",
+                        "type": "VARCHAR",
+                        "length": 60,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_DP_GR",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_DGR_P",
+                        "type": "VARCHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_DP_GR",
+                        "type": "VARCHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_DP_GR",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_DP_GR",
+                        "type": "VARCHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_EMP",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_DP_GR",
+                        "type": "VARCHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EMP",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EMP_P",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_BD",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_EM",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_GN",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_PS",
+                        "type": "VARCHAR",
+                        "length": 45,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_SD",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_EM_SN",
+                        "type": "VARCHAR",
+                        "length": 9,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PH",
+                        "type": "VARCHAR",
+                        "length": 19,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_EMP",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_EMP",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_PR_CG",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PR_CG",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTSH",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_PR_SC",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PR_CG",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_SC",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_PR_SC",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PR_SC",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTSH",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_PROD",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_CURRN",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PROD",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PRST",
+                        "type": "DECIMAL",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": 17,
+                        "scale": 2
+                    },
+                    {
+                        "name": "/BIC/MD_PR_CG",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_CL",
+                        "type": "VARCHAR",
+                        "length": 12,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_FG",
+                        "type": "VARCHAR",
+                        "length": 5,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_NK",
+                        "type": "VARCHAR",
+                        "length": 15,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_RP",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_SC",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_SR",
+                        "type": "VARCHAR",
+                        "length": 12,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_SS",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_SZ",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_UP",
+                        "type": "DECIMAL",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": 17,
+                        "scale": 2
+                    },
+                    {
+                        "name": "/BIC/MD_PR_WG",
+                        "type": "DOUBLE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_QUAN",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_PROD",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PROD",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/QMD_PROM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PROM",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_A",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_T",
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PR_V",
+                        "type": "DECIMAL",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": 17,
+                        "scale": 2
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "DATEFROM",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "DATETO",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_PROM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_PROM",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "DATEFROM",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "DATETO",
+                        "type": "DATE",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_RS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_AD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_PH",
+                        "type": "VARCHAR",
+                        "length": 19,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_AR",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_AS",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_BN",
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_EN",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_FY",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_LY",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_NK",
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_OF",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_PA",
+                        "type": "INTEGER",
+                        "length": "",
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_PL",
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_PT",
+                        "type": "VARCHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_TP",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_RS_YO",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_RS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_RS",
+                        "type": "VARCHAR",
+                        "length": 4,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTLG",
+                        "type": "VARCHAR",
+                        "length": 60,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/PMD_S_TY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_CNTR",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_C_GR",
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "/BIC/MD_S_TY",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSRCHCHANGED",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSOBJOBJVERS",
+                        "type": "VARCHAR",
+                        "length": 1,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            },
+            {
+                "name": "/BIC/TMD_S_TY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "name": "/BIC/MD_S_TY",
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "primaryKey": "true",
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    },
+                    {
+                        "name": "RSTXTTXTMD",
+                        "type": "VARCHAR",
+                        "length": 40,
+                        "nullable": true,
+                        "primaryKey": false,
+                        "identity": false,
+                        "unique": false,
+                        "defaultValue": null,
+                        "precision": null,
+                        "scale": null
+                    }
+                ]
+            }
+        ]
+    }
+}
