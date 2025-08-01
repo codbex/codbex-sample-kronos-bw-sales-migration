@@ -105,18 +105,6 @@
             "upsert": false
         },
         {
-            "table": "/BIC/PMD_PROD",
-            "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product MD (MD_PROD) - ATTRIBUTES - Content-formatted.csv",
-            "header": true,
-            "useHeaderNames": true,
-            "delimField": "\t",
-            "delimEnclosing": "\"",
-            "distinguishEmptyFromNull": true,
-            "version": "1.0",
-            "upsert": false
-        },
-        {
             "table": "/BIC/TMD_PROD",
             "schema": "PUBLIC",
             "file": "/sales/db/master-data/Product MD (MD_PROD) - TEXTS - Content-formatted.csv",
@@ -172,19 +160,6 @@
             "table": "/BIC/TMD_PROM",
             "schema": "PUBLIC",
             "file": "/sales/db/master-data/Promotion MD (MD_PROM) - TEXTS - Content-formatted.csv",
-            "header": true,
-            "useHeaderNames": true,
-            "delimField": "\t",
-            "delimEnclosing": "\"",
-            "distinguishEmptyFromNull": true,
-            "trim": true,
-            "version": "1.0",
-            "upsert": false
-        },
-        {
-            "table": "/BIC/PMD_RS",
-            "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Reseller MD (MD_RS) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
