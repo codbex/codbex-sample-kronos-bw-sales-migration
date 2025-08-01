@@ -113,6 +113,7 @@
             "delimField": "\t",
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
+            "trim": true,
             "version": "1.0",
             "upsert": false
         },
