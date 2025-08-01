@@ -6,7 +6,7 @@
             "file": "/sales/db/master-data/Currency MD (MD_CURR) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -19,7 +19,7 @@
             "file": "/sales/db/master-data/Customer MD (MD_CUS) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -32,7 +32,7 @@
             "file": "/sales/db/master-data/Customer MD (MD_CUS) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -45,7 +45,7 @@
             "file": "/sales/db/master-data/Department Group (MD_DP_GR) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -58,7 +58,7 @@
             "file": "/sales/db/master-data/Department Group (MD_DP_GR) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -71,7 +71,7 @@
             "file": "/sales/db/master-data/Employee (MD_EMP) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -84,7 +84,7 @@
             "file": "/sales/db/master-data/Employee (MD_EMP) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -97,7 +97,7 @@
             "file": "/sales/db/master-data/Product Category (MD_PR_CG) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -110,7 +110,7 @@
             "file": "/sales/db/master-data/Product MD (MD_PROD) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -123,7 +123,7 @@
             "file": "/sales/db/master-data/Product MD (MD_PROD) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -136,7 +136,7 @@
             "file": "/sales/db/master-data/Product Subcategory (MD_PR_SC) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -150,7 +150,7 @@
             "header": true,
             "useHeaderNames": true,
             "trim": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "version": "1.0",
@@ -162,7 +162,7 @@
             "file": "/sales/db/master-data/Promotion MD (MD_PROM) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -175,7 +175,7 @@
             "file": "/sales/db/master-data/Promotion MD (MD_PROM) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -188,7 +188,7 @@
             "file": "/sales/db/master-data/Reseller MD (MD_RS) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -201,7 +201,7 @@
             "file": "/sales/db/master-data/Reseller MD (MD_RS) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -214,7 +214,7 @@
             "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - ATTRIBUTES - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
@@ -227,7 +227,7 @@
             "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - TEXTS - Content-formatted.csv",
             "header": true,
             "useHeaderNames": true,
-            "delimField": "\t",
+            "delimField": "\\t"
             "delimEnclosing": "\"",
             "distinguishEmptyFromNull": true,
             "trim": true,
