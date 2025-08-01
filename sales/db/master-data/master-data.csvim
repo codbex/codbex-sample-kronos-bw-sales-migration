@@ -183,19 +183,6 @@
             "upsert": false
         },
         {
-            "table": "/BIC/PMD_RS",
-            "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Reseller MD (MD_RS) - ATTRIBUTES - Content-formatted.csv",
-            "header": true,
-            "useHeaderNames": true,
-            "delimField": "\t",
-            "delimEnclosing": "\"",
-            "distinguishEmptyFromNull": true,
-            "trim": true,
-            "version": "1.0",
-            "upsert": false
-        },
-        {
             "table": "/BIC/TMD_RS",
             "schema": "PUBLIC",
             "file": "/sales/db/master-data/Reseller MD (MD_RS) - TEXTS - Content-formatted.csv",
