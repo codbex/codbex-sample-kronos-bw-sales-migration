@@ -44,5 +44,6 @@ const parsed = JSON.parse(result.get().target_json.get());
 if (parsed.length < 10) {
   console.dir(parsed);
 }
-console.log(parsed.length + ` records mapped in ${Math.round(t1 - t0)}ms`);;
+console.log(parsed.length + ` records mapped in ${Math.round(t1 - t0)}ms`);
+console.log(result.get().logs.get());
 
