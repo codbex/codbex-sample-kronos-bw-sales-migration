@@ -10,11 +10,10 @@
     "test": "npm run lint && npm run unit"
   },
   "dependencies": {
-    "@abaplint/cli": "^2.113.149",
-    "@abaplint/database-snowflake": "^2.10.46",
+    "@abaplint/cli": "^2.113.150",
     "@abaplint/database-sqlite": "^2.10.24",
-    "@abaplint/runtime": "^2.10.75",
-    "@abaplint/transpiler-cli": "^2.10.75",
+    "@abaplint/runtime": "^2.10.83",
+    "@abaplint/transpiler-cli": "^2.10.83",
     "buffer": "^6.0.3",
     "esbuild": "^0.25.8",
     "oras-pull": "^0.1.7"
