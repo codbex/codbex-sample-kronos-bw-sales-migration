@@ -3,7 +3,7 @@
         {
             "table": "/BIC/TMD_CURR",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Currency MD (MD_CURR) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Currency MD (MD_CURR) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -17,7 +17,7 @@
         {
             "table": "/BIC/PMD_CUS",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Customer MD (MD_CUS) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Customer MD (MD_CUS) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -31,7 +31,7 @@
         {
             "table": "/BIC/TMD_CUS",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Customer MD (MD_CUS) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Customer MD (MD_CUS) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -45,7 +45,7 @@
         {
             "table": "/BIC/PMD_DP_GR",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Department Group (MD_DP_GR) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Department Group (MD_DP_GR) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -59,7 +59,7 @@
         {
             "table": "/BIC/TMD_DP_GR",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Department Group (MD_DP_GR) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Department Group (MD_DP_GR) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -73,7 +73,7 @@
         {
             "table": "/BIC/PMD_EMP",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Employee (MD_EMP) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Employee (MD_EMP) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -87,7 +87,7 @@
         {
             "table": "/BIC/TMD_EMP",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Employee (MD_EMP) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Employee (MD_EMP) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -101,7 +101,7 @@
         {
             "table": "/BIC/TMD_PR_CG",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product Category (MD_PR_CG) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Product Category (MD_PR_CG) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -115,7 +115,7 @@
         {
             "table": "/BIC/PMD_PROD",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product MD (MD_PROD) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Product MD (MD_PROD) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -129,7 +129,7 @@
         {
             "table": "/BIC/TMD_PROD",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product MD (MD_PROD) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Product MD (MD_PROD) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -143,7 +143,7 @@
         {
             "table": "/BIC/PMD_PR_SC",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product Subcategory (MD_PR_SC) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Product Subcategory (MD_PR_SC) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -157,7 +157,7 @@
         {
             "table": "/BIC/TMD_PR_SC",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Product Subcategory (MD_PR_SC) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Product Subcategory (MD_PR_SC) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "trim": true,
@@ -171,7 +171,7 @@
         {
             "table": "/BIC/QMD_PROM",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Promotion MD (MD_PROM) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Promotion MD (MD_PROM) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -185,7 +185,7 @@
         {
             "table": "/BIC/TMD_PROM",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Promotion MD (MD_PROM) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Promotion MD (MD_PROM) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -199,7 +199,7 @@
         {
             "table": "/BIC/PMD_RS",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Reseller MD (MD_RS) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Reseller MD (MD_RS) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -213,7 +213,7 @@
         {
             "table": "/BIC/TMD_RS",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Reseller MD (MD_RS) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Reseller MD (MD_RS) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -227,7 +227,7 @@
         {
             "table": "/BIC/PMD_S_TY",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - ATTRIBUTES - Content-formatted.csv",
+            "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - ATTRIBUTES - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
@@ -241,7 +241,7 @@
         {
             "table": "/BIC/TMD_S_TY",
             "schema": "PUBLIC",
-            "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - TEXTS - Content-formatted.csv",
+            "file": "/sales/db/master-data/Sales Territory MD (MD_S_TY) - TEXTS - Content.csv",
             "header": true,
             "useHeaderNames": true,
             "delimField": "\t",
