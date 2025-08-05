@@ -17,11 +17,12 @@ export async function transformEntries(transformationId, entities) {
   };
 
   const entitiesJson = JSON.stringify(entities);
+  const settings = new abap.types.Structure({ trace: new abap.types.Character().set("X") });
   const abapEntitiesJson = new abap.types.String().set(entitiesJson);
   const program = new abap.types.String().set(transformations[transformationId]);
 
   const params = {
-    //    settings: new abap.types.Structure({trace: new abap.types.Character().set("X")}),
+    settings: settings,
     source_json: abapEntitiesJson,
     program: program
   };
@@ -32,5 +33,8 @@ export async function transformEntries(transformationId, entities) {
   logger.debug("Transpiled ABAP code has been executed.");
 
   const resultJson = result.get().target_json.get();
+  console.log("Logs:");
+  console.log(result.get().logs.get());
+
   return JSON.parse(resultJson);
 }
