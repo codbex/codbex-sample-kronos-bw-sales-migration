@@ -9,6 +9,7 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
+      "trim": true,
       "version": "1.0",
       "upsert": false
     },
@@ -21,6 +22,7 @@
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
+      "trim": true,
       "version": "1.0",
       "upsert": false
     }
