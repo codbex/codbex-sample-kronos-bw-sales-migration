@@ -5,6 +5,7 @@ import { sql, query, update, insert } from "sdk/db";
 
 const ABAP_DATE_FORMAT = 'yyyyMMdd';
 const INSERT_BATCH_SIZE = 1000;
+const EXTRACTION_LIMIT = 221;
 
 const logger = getLogger(import.meta.url);
 
@@ -15,6 +16,7 @@ export function extractEntries(tableName: string): any[] {
         const sqlScript = sql.getDialect()
             .select()
             .from(tableName)
+            .limit(EXTRACTION_LIMIT)
             .build();
 
         const resultParameters = {
