@@ -27,10 +27,10 @@ export async function transformEntries(transformationId, entities) {
     program: program
   };
 
-  logger.debug("Executing ABAP code...");
+  logger.info("Executing ABAP code...");
 
   const result = await cl_runner.transform_v2(params);
-  logger.debug("Transpiled ABAP code has been executed.");
+  logger.info("Transpiled ABAP code has been executed.");
 
   const resultJson = result.get().target_json.get();
   console.log("Logs:");
