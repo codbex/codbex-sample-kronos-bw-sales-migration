@@ -24,7 +24,9 @@ export function extractEntries(tableName: string): any[] {
         const entries = query.execute(sqlScript, undefined, undefined, resultParameters);
 
         logger.info("Extraction of [{}] entries from table [{}] completed", entries.length, tableName);
-        logger.debug("Extracted entries:\n{}", prettyPrintJson(entries));
+        if (logger.isDebugEnabled()) {
+            logger.debug("Extracted entries:\n{}", prettyPrintJson(entries));
+        }
 
         return entries;
     });
@@ -33,12 +35,16 @@ export function extractEntries(tableName: string): any[] {
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
     return logExecutionTime("Entries transformation took [{}]ms", async () => {
         logger.info("Transforming [{}] entries using transformation with id [{}]", sourceEntries.length, transformationId);
-        logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
+        if (logger.isDebugEnabled()) {
+            logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
+        }
 
         const transformedEntries = await abapTransformEntries(transformationId, sourceEntries);
 
         logger.info("Transformation of [{}] entries to [{}] entries using transformation with id [{}] completed", sourceEntries.length, transformedEntries.length, transformationId);
-        logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
+        if (logger.isDebugEnabled()) {
+            logger.debug("Entries:\n{}\nwere transformed to\n{}", prettyPrintJson(sourceEntries), prettyPrintJson(transformedEntries));
+        }
 
         return transformedEntries;
     });
@@ -81,14 +87,18 @@ function prepareEntries(entries: any[]) {
         }, {} as Record<string, any>);
     });
 
-    logger.debug("Entries:\n{}\nwere prepared to\n{}", prettyPrintJson(entries), prettyPrintJson(preparedEntries));
+    if (logger.isDebugEnabled()) {
+        logger.debug("Entries:\n{}\nwere prepared to\n{}", prettyPrintJson(entries), prettyPrintJson(preparedEntries));
+    }
 
     return preparedEntries
 }
 
 function insertIntoTargetTable(tableName: string, entries: any[]) {
     logger.debug("[{}] entries have to be upserted into the target.", entries.length);
-    logger.debug("Entries:\n{}", prettyPrintJson(entries));
+    if (logger.isDebugEnabled()) {
+        logger.debug("Entries:\n{}", prettyPrintJson(entries));
+    }
 
     if (entries.length === 0) {
         logger.debug("No entries for insert");
@@ -114,7 +124,9 @@ function insertIntoTargetTable(tableName: string, entries: any[]) {
             const endTime = Date.now();
             logger.info("Insert of [{}] entries took [{}] millis", batchValues.length, (endTime - startTime));
         } catch (e) {
-            logger.error("Failed to insert entries in table [{}] using sql [{}]. Entries:\n{}", tableName, insertSql, prettyPrintJson(entriesBatch));
+            if (logger.isErrorEnabled()) {
+                logger.error("Failed to insert entries in table [{}] using sql [{}]. Entries:\n{}", tableName, insertSql, prettyPrintJson(entriesBatch));
+            }
             throw e;
         }
     }
