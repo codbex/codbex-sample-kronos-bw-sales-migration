@@ -33,7 +33,7 @@ export function extractEntries(tableName: string): any[] {
 }
 
 export async function transformEntries(transformationId: string, sourceEntries: any[]) {
-    return logExecutionTime("Entries transformation took [{}]ms", async () => {
+    return logExecutionTime("Entries transformation using transformation with id [" + transformationId + "] took [{}]ms", async () => {
         logger.info("Transforming [{}] entries using transformation with id [{}]", sourceEntries.length, transformationId);
         if (logger.isDebugEnabled()) {
             logger.debug("Entries to be transformed:\n{}", prettyPrintJson(sourceEntries));
