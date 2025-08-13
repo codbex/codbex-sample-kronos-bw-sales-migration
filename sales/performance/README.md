@@ -49,8 +49,6 @@ __Prerequisites__
 - Publish it
 - Execute the following
 ```shell
-#cd /target/dirigible/repository/root/registry/public/sales
-
 cd /target/dirigible/repository/.git/admin/workspace/codbex-sample-kronos-bw-sales-migration/sales
 
 # copy ORAS artifacts
