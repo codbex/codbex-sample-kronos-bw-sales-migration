@@ -10,10 +10,10 @@ const jsonFiles = {
     "0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N": "/target/dirigible/repository/.git/admin/workspace/codbex-sample-kronos-bw-sales-migration/sales/performance/source-entries/TD_RS-0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N.json"
 };
 
-// const transformationId = "0F6HG21PA0TK50C7KN4GA0325H9G7YOH";
+const transformationId = "0F6HG21PA0TK50C7KN4GA0325H9G7YOH";
 // const transformationId = "0FLXDSKYMZALJXUYFY6L5K61AVNABJMC";
 // const transformationId = "0TV24F1JY884H1C30RDIC36ST131L5UT";
-const transformationId = "0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N";
+// const transformationId = "0O3HV2JF3M5P7LJO52ZNFFDYZJS0FJ7N";
 
 const sourceEntries = loadSourceEntries(transformationId);
 await performTransformation(transformationId, sourceEntries);
