@@ -83,7 +83,7 @@ GRAAL_HOME='<path>/graalvm-jdk-17.0.16+12.1/Contents/Home'
 export PATH="$GRAAL_HOME/bin:$PATH"
 
 cd sales/performance
-js perf-test-hardcoded.ts
+js perf-test-hardcoded.mjs
 
 # where the time is spent to the console
 js --cpusampler perf-test-hardcoded.mjs
