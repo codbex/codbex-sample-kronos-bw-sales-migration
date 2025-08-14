@@ -53,6 +53,8 @@ function loadSourceEntries() {
 
 function get0F6HG21PA0TK50C7KN4GA0325H9G7YOHEntries() {
   const filePath = "/target/dirigible/repository/.git/admin/workspace/codbex-sample-kronos-bw-sales-migration/sales/performance/source-entries/DS_IS_TD-0F6HG21PA0TK50C7KN4GA0325H9G7YOH.json";
+  //   const filePath = "/Users/iliyan/work/dirigible-workspaces/kronos/dirigible/repository/.git/admin/workspace/codbex-sample-kronos-bw-sales-migration/sales/performance/source-entries/DS_IS_TD-0F6HG21PA0TK50C7KN4GA0325H9G7YOH.json";
+
   try {
     const data = fs.readFileSync(filePath, 'utf8');
     return data;
