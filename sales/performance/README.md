@@ -65,6 +65,7 @@ node ./performance/perf-test-nodejs-direct.mjs
 ```
 
 ### GraalVM profiling tools
+#### GraalVM v17
 Official documentation [here](https://www.graalvm.org/latest/tools/profiling/). Related blog [here](https://medium.com/graalvm/where-has-all-my-run-time-gone-245f0ccde853)<br>
 All examples use `js` graalvm launcher which could be installed using `gu` (GraalVM Updater) tool.
 `gu` tools is available in **GraalVM 17** but **not in the newer versions** like 21 and 24.
@@ -75,13 +76,32 @@ To install the launcher:
 - It requires token and license agreement which will be by Oracle to your email
 - On successful installation, `js` launcher will be installed in the `bin` folder
 - Try the examples from the [profiling](https://www.graalvm.org/latest/tools/profiling/) site to ensure the tool works
-- To test the transformation logic unzip the test code from [sales.zip](sales.zip)
-  The zip contains the files exported from the Dirigible registry. Bundled file `abap-transformation-executor.mjs` has commented the line `var types_1 = __require("util/types");` in order to work
-- Play with the tools. Examples:
+- Proceed to transformation  profiling as described [here](#transformation-profiling)
+- Configure the path
 ```shell
 GRAAL_HOME='<path>/graalvm-jdk-17.0.16+12.1/Contents/Home'
 export PATH="$GRAAL_HOME/bin:$PATH"
 
+```
+
+#### GraalVM v21+
+Since version 21, all launchers are distributed as separate binary.
+
+- Download GraalJS from [here](https://github.com/oracle/graaljs/releases)
+- Add it to the path
+```shell
+GRAAL_HOME='<path>/graaljs-24.2.2-macos-aarch64'
+export PATH="$GRAAL_HOME/bin:$PATH"
+
+```
+
+- Proceed to transformation  profiling as described [here](#transformation-profiling)
+
+#### Transformation profiling
+- To test the transformation logic unzip the test code from [sales.zip](sales.zip)
+  The zip contains the files exported from the Dirigible registry. Bundled file `abap-transformation-executor.mjs` has commented the line `var types_1 = __require("util/types");` in order to work
+- Play with the tools. Examples:
+```shell
 cd sales/performance
 js perf-test-hardcoded.mjs
 
@@ -98,3 +118,4 @@ js --cpusampler --cpusampler.Output=calltree  perf-test-hardcoded.mjs
 js perf-test-hardcoded.mjs --cputracer --cputracer.TraceStatements
 
 ```
+
