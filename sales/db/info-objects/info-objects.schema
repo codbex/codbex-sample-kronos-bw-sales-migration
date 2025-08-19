@@ -18,7 +18,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
@@ -30,7 +30,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTSH",
+                        "name": "TXTSH",
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -246,7 +246,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTLG",
+                        "name": "TXTLG",
                         "type": "VARCHAR",
                         "length": 60,
                         "nullable": true,
@@ -330,7 +330,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
@@ -510,7 +510,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
@@ -540,7 +540,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTSH",
+                        "name": "TXTSH",
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -624,7 +624,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTSH",
+                        "name": "TXTSH",
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
@@ -864,7 +864,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
@@ -1020,7 +1020,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
@@ -1272,7 +1272,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTLG",
+                        "name": "TXTLG",
                         "type": "VARCHAR",
                         "length": 60,
                         "nullable": true,
@@ -1368,7 +1368,7 @@
                         "scale": null
                     },
                     {
-                        "name": "RSTXTTXTMD",
+                        "name": "TXTMD",
                         "type": "VARCHAR",
                         "length": 40,
                         "nullable": true,
